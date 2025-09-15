@@ -49,7 +49,8 @@
       },
       {
         "tab": "API reference",
-          "openapi": "/api-reference/openapi.json"
+        "openapi": "/api-reference/openapi.json",
+        "url": "api-reference/v2"
       }
     ],
     "global": {
@@ -91,15 +92,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
