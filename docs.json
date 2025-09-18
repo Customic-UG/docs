@@ -18,6 +18,20 @@
             "pages": [
               "essentials/index"
             ]
+          },
+          {
+            "group": "Lead Management",
+            "icon": "calendar",
+            "pages": [
+              "lead-managment/overview"
+            ]
+          },
+          {
+            "group": "Changelog",
+            "icon": "clock-rotate-left",
+            "pages": [
+              "changelog/index"
+            ]
           }
         ]
       }
