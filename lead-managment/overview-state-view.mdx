@@ -1,0 +1,63 @@
+---
+title: "Lead-Detailansicht & Status"
+description: "In der Detailansicht eines Leads erhalten Sie alle wichtigen Informationen auf einen Blick und können gezielte Aktionen durchführen – vom Anruf bis zur Statusänderung."
+---
+# Überblick: Lead-Detailansicht
+
+Die Detailansicht öffnet sich, sobald Sie in der Übersicht auf einen Lead klicken.\
+Hier sehen Sie:
+
+* ✅ Kontaktinformationen zum Lead
+* ✅ Anfragedaten zum Lead (Kaufpreis, Einkommen, Objekttyp uvm.)
+* ✅ Postleitzahl
+* ✅ Notizen
+* ✅ Aktivitäten-Historie
+
+📷 Beispielansicht:
+
+
+
+## Notizen
+
+Nutzen Sie das Feld **„Notizen“**, um interne Informationen, Gesprächsverläufe oder To-dos zu dokumentieren. Notizen sind nicht nutzer abhängig sondern beziehen sich immer auf den Lead. Alle Notizen von jedem nutzer werden hierbei angezeigt.\
+Die Notizen sind nur intern sichtbar und werden automatisch gespeichert.
+
+
+## Lead-Historie
+
+Siehe: [lead-historie](https://osiro.gitbook.io/osiro-product-docs/lead-historie "mention")
+
+***
+
+## Direktanruf starten
+
+Am rechten oberen Rand der Detailansicht finden Sie einen Button mit der Telefonnummer vom Lead, mit dem Sie Leads direkt aus Hunter heraus anrufen können.
+
+<Warning>
+ Hunter ist **nicht mit einem Callmanager oder Telefonsystem verbunden**. Der Anruf erfolgt **über das `tel:`-Protokoll im Browser**.\
+ Das bedeutet: Der Klick auf „Anrufen“ öffnet Ihren Standard-Telefon-Client (z. B. Smartphone, Softphone oder eine angebundene Telefonsoftware).
+</Warning>
+
+📷 Beispielansicht:
+
+
+<Tip>
+Damit der Anruf korrekt funktioniert, muss Ihr Gerät ein Programm haben, das mit `tel:`-Links umgehen kann (z. B. Smartphone, Cisco Jabber, Microsoft Teams, etc.).
+</Tip>
+
+
+## Lead-Status setzen
+
+Sie können jedem Lead einen **Status (Stadium)** zuweisen, um den aktuellen Bearbeitungsstand zu kennzeichnen. Das erleichtert die Nachverfolgung und hilft bei der Strukturierung Ihrer Pipeline.
+
+📷 Beispielansicht:
+
+
+**Verfügbare Aktionen:**
+
+| Status             | Bedeutung                                                                          | Aktion                                                                                                                                                                                                                                                                                                                                               |
+| ------------------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nicht erreicht** | Der Lead wurde (noch) nicht erreicht.                                              | Hierbei wird der Lead automatisch rescheduled und wird zu einer bestimmten zeit wieder sichtbar. Siehe: [#lead-anzeigeintervall](https://osiro.gitbook.io/osiro-product-docs/einstellungen/lead-scheduler#lead-anzeigeintervall "mention")                                                                                                           |
+| **Status**         | Lead stadien sind sowas wie: Falsche Telefonnummer, Kein Interesse, Objekt ist Weg | Hierbei wird der Lead ausgeblendet aus der Anrufliste und kann im [kontrollzentrum](https://osiro.gitbook.io/osiro-product-docs/kontrollzentrum "mention") exportiert werden oder über den Webhook. Falls Falsche Telefonnummer gedrückt wird und der Lead von einer anderen osiro Organisation gekauft wurde wird eine Reklamationsanfrage gestellt |
+| **Wiedervorlage**  | Es ist ein Folgekontakt notwendig (z. B. Wiedervorlage, Rückruf).                  | Lead wird aus der Anrufliste entfernt und 10 minuten bevor die Wiedervorlage fällig ist Farblich markiert angezeigt ganz oben in der Liste                                                                                                                                                                                                           |
+| **Terminiert**     | Es wurde ein Termin vereinbart.                                                    | Lead wird unsichtbar in Hunter und wird per E-Mail an Sie geschickt mit allen Lead daten. Alternativ kann man den lead auch aus dem [kontrollzentrum](https://osiro.gitbook.io/osiro-product-docs/kontrollzentrum "mention") exportieren.                                                                                                            |

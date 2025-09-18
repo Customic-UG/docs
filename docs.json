@@ -23,7 +23,8 @@
             "group": "Lead Management",
             "icon": "calendar",
             "pages": [
-              "lead-managment/overview"
+              "lead-managment/overview",
+              "lead-managment/overview-state-view"
             ]
           },
           {
