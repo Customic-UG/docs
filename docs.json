@@ -11,20 +11,31 @@
   "navigation": {
     "tabs": [
       {
+        "tab": "Landing Pages",
+        "groups": [
+          {
+            "group": "Erste Schritte",
+            "pages": [
+              "landing-pages/essentials/index"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Hunter",
         "groups": [
           {
             "group": "Erste Schritte",
             "pages": [
-              "essentials/index"
+              "hunter/essentials/index"
             ]
           },
           {
             "group": "Lead Management",
             "icon": "calendar",
             "pages": [
-              "lead-managment/overview",
-              "lead-managment/overview-state-view"
+              "hunter/lead-management/overview",
+              "hunter/lead-management/overview-state-view"
             ]
           },
           {
