@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "willow",
   "name": "osiro",
   "colors": {
     "primary": "#248AFF",
@@ -11,12 +11,12 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Landing Pages",
+        "tab": "Portal",
         "groups": [
           {
             "group": "Erste Schritte",
             "pages": [
-              "landing-pages/essentials/index"
+              "portal/account/essentials/index"
             ]
           }
         ]
@@ -34,7 +34,7 @@
             "group": "Lead Management",
             "icon": "calendar",
             "pages": [
-              "hunter/lead-management/overview",
+              "hunter/lead-managment/overview",
               "hunter/lead-management/overview-state-view"
             ]
           },
