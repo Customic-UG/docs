@@ -9,6 +9,15 @@
   },
   "favicon": "/favicon.avif",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Blog",
+          "icon": "newspaper",
+          "href": "https://osiro.app/blog"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Portal",
@@ -16,11 +25,16 @@
           {
             "group": "Erste Schritte",
             "pages": [
-              "portal/account/essentials/index"
+              "portal/account/essentials/index",
+              "portal/account/essentials/api"
             ]
           }
         ]
       },
+         {
+      "tab": "API Reference",
+      "openapi": "openapi.json"
+    },
       {
         "tab": "Hunter",
         "groups": [
@@ -47,16 +61,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Blog",
-          "href": "https://osiro.app/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
