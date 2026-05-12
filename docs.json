@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "willow",
+  "theme": "luma",
   "name": "osiro",
   "colors": {
     "primary": "#248AFF",
@@ -25,8 +25,7 @@
           {
             "group": "Erste Schritte",
             "pages": [
-              "portal/account/essentials/index",
-              "portal/account/essentials/api"
+              "portal/account/essentials/index"
             ]
           }
         ]
