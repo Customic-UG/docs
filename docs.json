@@ -33,7 +33,7 @@
       },
          {
       "tab": "API Reference",
-      "openapi": "openapi.json"
+      "openapi": "test.json"
     },
       {
         "tab": "Hunter",
