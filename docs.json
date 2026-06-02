@@ -32,7 +32,7 @@
       },
          {
       "tab": "API Reference",
-      "openapi": "test.json"
+      "openapi": "https://api.osiro.com/doc"
     },
       {
         "tab": "Hunter",
