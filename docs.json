@@ -55,6 +55,18 @@
             "pages": [
               "convert/essentials/index"
             ]
+          },
+          {
+            "group": "Landing Pages",
+            "pages": [
+              "convert/landing-pages/index"
+            ]
+          },
+          {
+            "group": "Funnels",
+            "pages": [
+              "convert/funnels/index"
+            ]
           }
         ]
       },
