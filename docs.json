@@ -46,6 +46,17 @@
          {
       "tab": "API Reference",
       "openapi": "https://api.osiro.com/doc"
+    },
+    {
+        "tab": "Convert",
+        "groups": [
+          {
+            "group": "Erste Schritte",
+            "pages": [
+              "convert/essentials/index"
+            ]
+          }
+        ]
       },
       {
         "tab": "Hunter",
