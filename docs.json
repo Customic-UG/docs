@@ -34,7 +34,7 @@
       "tab": "API Reference",
       "openapi": "https://api.osiro.com/doc"
     },
-      {
+    {
         "tab": "Hunter",
         "groups": [
           {
@@ -47,7 +47,7 @@
             "group": "Lead Management",
             "icon": "calendar",
             "pages": [
-              "hunter/lead-managment/overview",
+              "hunter/lead-management/overview",
               "hunter/lead-management/overview-state-view"
             ]
           },
