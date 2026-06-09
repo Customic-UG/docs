@@ -90,6 +90,13 @@
             ]
           },
           {
+            "group": "Konfiguration",
+            "icon": "calendar",
+            "pages": [
+              "hunter/konfiguration/lead-scheduler"
+            ]
+          },
+          {
             "group": "Changelog",
             "icon": "clock-rotate-left",
             "pages": [

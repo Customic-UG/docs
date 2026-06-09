@@ -1,0 +1,59 @@
+---
+title: "Lead-Scheduler"
+description: "Steuert, wann ein Lead erneut erscheint und wie lange er im System verbleibt."
+---
+
+## Was ist der Lead-Scheduler?
+
+Der Lead-Scheduler legt fest, nach welcher Zeit ein Lead erneut in der Call-Liste angezeigt wird – abhängig davon, was zuletzt mit dem Lead passiert ist. So vermeiden Sie, dass Leads zu früh oder zu spät wieder auftauchen, und steuern den Vertriebsrhythmus gezielt.
+
+---
+
+## Lead-Dauer
+
+Hier lässt sich festlegen, wie lange ein Lead insgesamt im System aktiv bleibt.
+Nach Ablauf dieser Frist wird der Lead automatisch aus der Call-Liste entfernt.
+
+Das verhindert, dass veraltete oder aussichtslose Leads dauerhaft die Übersicht belasten.
+
+---
+
+## Lead Anzeigeintervall
+
+### Einfacher Modus
+
+Im einfachen Modus definieren Sie festen Zeitabstand, nach dem der Lead wieder erscheint, wenn er als "nicht erreicht" gekennzeichnet wurde
+
+---
+
+### Erweiterter Modus
+
+Im erweiterten Modus können beliebig viele eigene Bedingungen definiert werden. Jede Bedingung folgt diesem Schema:
+
+**Wenn** der Lead zwischen *Uhrzeit A* und *Uhrzeit B* angerufen wird\
+**und** die Lead-Aktivität *X Tage* beträgt\
+**dann** Lead anzeigen um *Uhrzeit* mit *Y Tagen* Puffer
+
+Beispiel: Wird ein Lead zwischen 17:00 und 20:00 Uhr angerufen und ist seit 3 Tagen aktiv, dann erst wieder am übernächsten Morgen um 9:00 Uhr anzeigen.
+
+Bedingungen werden der Reihe nach geprüft – greift keine, gilt automatisch die Regel des einfachen Modus als Fallback.
+
+<Frame>
+  <img src="/images/konfiguration/lead-scheduler/lead-scheduler.png" />
+</Frame>
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Was passiert mit einem Lead, der keiner Bedingung im erweiterten Modus entspricht?">
+    Greift keine der definierten Bedingungen, wird automatisch die Regel des einfachen Modus angewendet. Der Lead erscheint nach dem dort hinterlegten Standardintervall wieder in der Call-Liste.
+  </Accordion>
+  <Accordion title="Was passiert mit einem Lead, wenn die maximale Lead-Dauer abgelaufen ist?">
+    Der Lead wird automatisch aus der aktiven Call-Liste entfernt. So bleibt die Übersicht auf aktuelle und relevante Kontakte beschränkt.
+  </Accordion>
+  <Accordion title="Kann ich einfachen und erweiterten Modus gleichzeitig nutzen?">
+    Ja – der einfache Modus ist immer aktiv und dient als Fallback. Der erweiterte Modus ergänzt ihn durch spezifischere Bedingungen. Leads, auf die keine Bedingung zutrifft, folgen weiterhin der Standardregel des einfachen Modus.
+  </Accordion>
+</AccordionGroup>
