@@ -71,7 +71,8 @@
             "group": "Funnels",
             "icon": "filter",
             "pages": [
-              "convert/funnels/index"
+              "convert/funnels/index",
+              "convert/funnels/funnel-editor"
             ]
           }
         ]
