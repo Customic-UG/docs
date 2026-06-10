@@ -93,7 +93,8 @@
             "group": "Konfiguration",
             "icon": "calendar",
             "pages": [
-              "hunter/konfiguration/lead-scheduler"
+              "hunter/konfiguration/lead-scheduler",
+              "hunter/konfiguration/tags"
             ]
           },
           {
