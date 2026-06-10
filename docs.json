@@ -32,12 +32,14 @@
           },
           {
             "group": "Abbonement & Pläne",
+            "icon": "credit-card",
             "pages": [
               "portal/abonnement/index"
             ]
           },
           {
             "group": "Einstellungen",
+            "icon": "gear",
             "pages": [
               "portal/settings/index"
             ]
@@ -60,12 +62,14 @@
           },
           {
             "group": "Landing Pages",
+            "icon": "display",
             "pages": [
               "convert/landing-pages/index"
             ]
           },
           {
             "group": "Funnels",
+            "icon": "filter",
             "pages": [
               "convert/funnels/index"
             ]
