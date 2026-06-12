@@ -1,0 +1,58 @@
+---
+title: "Lead-Status"
+description: "Den Bearbeitungsstand eines Leads auf einen Blick erfassen und steuern."
+---
+
+## Was ist der Lead-Status?
+
+Jeder Lead hat zu jedem Zeitpunkt genau einen Status. Er zeigt auf einen Blick, in welchem Bearbeitungsstand sich ein Kontakt befindet – und steuert gleichzeitig, wie Hunter mit dem Lead umgeht: ob er wieder in der Call-Liste erscheint, ob er exportiert wurde oder ob er vorerst zurückgestellt ist.
+
+---
+
+## Standardstatus
+
+Hunter liefert vier vordefinierte Status, die den typischen Vertriebszyklus abbilden.
+
+| Status | Bedeutung |
+|---|---|
+| **Nicht angerufen** | Ausgangsstatus jedes neuen Leads – noch kein Kontaktversuch erfolgt. |
+| **Nicht erreicht** | Anruf hat stattgefunden, aber niemand hat abgenommen. Der Lead erscheint nach dem konfigurierten Intervall im [Lead-Scheduler](/hunter/konfiguration/lead-scheduler) automatisch wieder. |
+| **Wiedervorlage** | Gespräch hat stattgefunden, aber es wurde noch keine Entscheidung getroffen. Der Lead pausiert bis zu einem festgelegten Datum und taucht dann automatisch wieder auf. |
+| **Exportiert** | Lead wurde erfolgreich abgeschlossen und an ein nachgelagertes System übergeben. Er bleibt sichtbar, erscheint aber nicht mehr aktiv in der Call-Liste. |
+
+---
+
+## Eigene Status anlegen
+
+Die vier Standardstatus decken viele Anwendungsfälle ab, lassen sich aber nicht immer passend auf jeden Vertriebsprozess oder jede Branche übertragen. Deshalb können Sie in Hunter eigene Status definieren.
+
+    <Frame>
+      <img src="/images/hunter/konfiguration/status/status.png" />
+    </Frame>
+
+Das ist sinnvoll, wenn Ihr Vertriebsprozess spezifische Zwischenschritte kennt, die mit den Standardoptionen nicht abgebildet werden. Beispiele:
+
+- **Angebot versendet** – für Prozesse mit einer Angebots- oder Beratungsphase vor dem Abschluss
+- **Nicht qualifiziert** – wenn ein Lead im Gespräch als nicht zur Zielgruppe passend erkannt wurde und gezielt aus dem aktiven Prozess herausgenommen werden soll
+- **Kein Interesse** – zur klaren Kennzeichnung von Leads, die ausdrücklich abgelehnt haben, ohne sie zu löschen
+
+Eigene Status helfen dabei, die Realität Ihres Vertriebsalltags abzubilden. Sie ermöglichen außerdem eine genauere Auswertung: Wenn jeder Bearbeitungsstand einen eigenen Status hat, lässt sich später nachvollziehen, wie viele Leads in welcher Phase stecken oder wo es im Prozess hakt.
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Kann ich den Status eines Leads manuell ändern?">
+    Ja. Der Status lässt sich jederzeit manuell über die Lead-Ansicht anpassen – unabhängig davon, welcher Status automatisch gesetzt wurde.
+  </Accordion>
+  <Accordion title="Was passiert mit einem Lead im Status 'Nicht erreicht'?">
+    Der Lead bleibt aktiv in der Call-Liste und wird nach dem im Lead-Scheduler hinterlegten Intervall automatisch wieder zur Bearbeitung vorgeschlagen.
+  </Accordion>
+  <Accordion title="Unterscheidet sich die Wiedervorlage von 'Nicht erreicht'?">
+    Ja. „Nicht erreicht" bedeutet, dass kein Gespräch zustande gekommen ist – der Lead erscheint automatisch nach dem konfigurierten Intervall wieder. Die Wiedervorlage setzt dagegen voraus, dass ein Gespräch stattgefunden hat und ein konkreter Rückrufzeitpunkt vereinbart oder gewünscht wurde.
+  </Accordion>
+  <Accordion title="Werden eigene Status genauso behandelt wie Standardstatus?">
+    Eigene Status erscheinen in der Statusauswahl wie die Standardstatus. Das Verhalten – ob ein Lead in der Call-Liste aktiv bleibt oder pausiert – lässt sich bei der Erstellung eines eigenen Status konfigurieren.
+  </Accordion>
+</AccordionGroup>

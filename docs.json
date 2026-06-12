@@ -103,6 +103,7 @@
             "pages": [
               "hunter/konfiguration/lead-scheduler",
               "hunter/konfiguration/tags",
+              "hunter/konfiguration/status",
               "hunter/konfiguration/telefonie-benachrichtigungen"
             ]
           },
