@@ -57,14 +57,4 @@ Damit der Anruf korrekt funktioniert, muss Ihr Gerät ein Programm haben, das mi
 
 Sie können jedem Lead einen **Status (Stadium)** zuweisen, um den aktuellen Bearbeitungsstand zu kennzeichnen. Das erleichtert die Nachverfolgung und hilft bei der Strukturierung Ihrer Pipeline.
 
-📷 Beispielansicht:
-
-
-**Verfügbare Aktionen:**
-
-| Status             | Bedeutung                                                                          | Aktion                                                                                                                                                                                                                                                                                                                                               |
-| ------------------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Nicht erreicht** | Der Lead wurde (noch) nicht erreicht.                                              | Hierbei wird der Lead automatisch rescheduled und wird zu einer bestimmten zeit wieder sichtbar. Siehe: [#lead-anzeigeintervall](https://osiro.gitbook.io/osiro-product-docs/einstellungen/lead-scheduler#lead-anzeigeintervall "mention")                                                                                                           |
-| **Status**         | Lead stadien sind sowas wie: Falsche Telefonnummer, Kein Interesse, Objekt ist Weg | Hierbei wird der Lead ausgeblendet aus der Anrufliste und kann im [kontrollzentrum](https://osiro.gitbook.io/osiro-product-docs/kontrollzentrum "mention") exportiert werden oder über den Webhook. Falls Falsche Telefonnummer gedrückt wird und der Lead von einer anderen osiro Organisation gekauft wurde wird eine Reklamationsanfrage gestellt |
-| **Wiedervorlage**  | Es ist ein Folgekontakt notwendig (z. B. Wiedervorlage, Rückruf).                  | Lead wird aus der Anrufliste entfernt und 10 minuten bevor die Wiedervorlage fällig ist Farblich markiert angezeigt ganz oben in der Liste                                                                                                                                                                                                           |
-| **Terminiert**     | Es wurde ein Termin vereinbart.                                                    | Lead wird unsichtbar in Hunter und wird per E-Mail an Sie geschickt mit allen Lead daten. Alternativ kann man den lead auch aus dem [kontrollzentrum](https://osiro.gitbook.io/osiro-product-docs/kontrollzentrum "mention") exportieren.                                                                                                            |
+Siehe: [status](/hunter/konfiguration/status)
