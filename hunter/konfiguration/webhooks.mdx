@@ -1,0 +1,47 @@
+---
+title: "Webhooks"
+description: "Legen Sie fest, an welche URL Benachrichtigungen über bestimmte Ereignisse in Hunter gesendet werden sollen."
+---
+
+## Webhook-Konfiguration
+
+Mit Webhooks können Sie Hunter mit externen Systemen verbinden. Sobald ein bestimmtes Ereignis eintritt, sendet Hunter automatisch eine HTTP-Anfrage an die von Ihnen hinterlegte URL – in Echtzeit und ohne manuellen Aufwand.
+
+Das ermöglicht z. B. die Anbindung an CRM-Systeme, Automatisierungstools oder eigene Backend-Dienste.
+
+---
+
+## Webhook-URL einrichten
+
+Tragen Sie unter **Einstellungen → Entwickler → Webhook Konfiguration** Ihre Ziel-URL ein. An diese Adresse sendet Hunter bei jedem aktivierten Ereignis eine Benachrichtigung.
+
+---
+
+## Ereignisse auswählen
+
+Wählen Sie, bei welchen Ereignissen Hunter eine Benachrichtigung auslösen soll. Jedes Ereignis kann unabhängig aktiviert oder deaktiviert werden.
+
+| Ereignis | Beschreibung |
+|---|---|
+| `lead.call` | Ein Anruf bei einem Lead wurde durchgeführt. |
+| `lead.not_reached` | Ein Lead wurde als nicht erreichbar markiert. |
+| `lead.rescheduled` | Ein Lead wurde neu terminiert. |
+| `lead.exported` | Ein Lead wurde erfolgreich exportiert. |
+| `lead.state_changed` | Der Status eines Leads hat sich geändert. |
+| `note.added` | Eine Notiz wurde zu einem Lead hinzugefügt. |
+
+---
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="In welchem Format werden die Daten gesendet?">
+    Hunter sendet die Webhook-Benachrichtigungen als HTTP POST-Anfrage mit einem JSON-Body. Der Inhalt enthält die relevanten Daten zum ausgelösten Ereignis.
+  </Accordion>
+  <Accordion title="Kann ich mehrere Ereignisse gleichzeitig aktivieren?">
+    Ja. Alle Ereignisse sind unabhängig voneinander – Sie können beliebig viele gleichzeitig aktivieren.
+  </Accordion>
+  <Accordion title="Werden alle Ereignisse gleichzeitig an dieselbe URL gesendet?">
+    Ja. Es gibt aktuell eine Webhook-URL pro Konfiguration – alle aktivierten Ereignisse werden an diese eine Adresse gesendet. Der Ereignistyp ist im JSON-Body erkennbar, sodass Ihr System die Anfragen entsprechend unterscheiden kann.
+  </Accordion>
+</AccordionGroup>

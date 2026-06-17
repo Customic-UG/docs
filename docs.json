@@ -104,6 +104,7 @@
               "hunter/konfiguration/lead-scheduler",
               "hunter/konfiguration/tags",
               "hunter/konfiguration/status",
+              "hunter/konfiguration/webhooks",
               "hunter/konfiguration/telefonie-benachrichtigungen"
             ]
           },
