@@ -1,5 +1,5 @@
 ---
-title: Funnel Editor
+title: Grundlagen
 description: Funnels selbst erstellen – ganz ohne Programmierkenntnisse.
 ---
 
@@ -23,83 +23,6 @@ Ein Funnel besteht aus mehreren **Steps** – einzelnen Schritten, die ein Nutze
 - Die Reihenfolge kann per Drag & Drop angepasst werden
 - Jeder Step erhält einen internen Namen zur besseren Orientierung
 
----
-
-## Blöcke
-
-Innerhalb eines Steps können verschiedene **Blöcke** hinzugefügt werden. Blöcke sind die Bausteine eines Funnels.
-
-    <Frame>
-      <img src="/images/convert/funnels/funnel-editor/blocks.png" />
-    </Frame>
-
-### Häufig verwendete Blocktypen
-
-Zu den meistgenutzten Blöcken gehören unter anderem:
-
-| Block | Beschreibung |
-|---|---|
-| **Choice** | Eine Frage mit vordefinierten Antwortoptionen – Nutzer wählen genau eine |
-| **Multi-Select** | Mehrere Antworten können gleichzeitig ausgewählt werden |
-| **Basic Input** | Freies Textfeld für z. B. Name, E-Mail oder Wohnort |
-| **Heading / Standard Text** | Statischer Inhaltsblock – z. B. für Überschriften, Erklärungen oder Hinweise an den Interessenten |
-| **Basic Button** | Schaltfläche zum Absenden von Antworten oder Formulardaten – leitet den Nutzer zum nächsten Step weiter |
-
-Weitere Blocktypen sind direkt im Editor verfügbar.
-
-### Block-Design
-
-Jeder Block lässt sich individuell konfigurieren. Im Design Bereich eines Blocks stehen folgende Bereiche zur Verfügung: **Content**, **Layout**, **Style**, **Behaviour** und **Visibility**.
-
-<Frame>
-  <img src="/images/convert/funnels/funnel-editor/block-design.png" />
-</Frame>
-
-### Validation
-
-Für Eingabe-Blöcke (z. B. Optionen bei Multi-Select) können Validierungsregeln definiert werden, die sicherstellen, dass Nutzer nur gültige Werte eingeben. Typische Validierungen sind z. B. Pflichtfelder oder Mindest- und Maximalwerte.
-
-<Frame>
-  <img src="/images/convert/funnels/funnel-editor/block-validation.png" />
-</Frame>
-
-### Logik & Conditions
-
-Jeder Block kann mit **Conditions** versehen werden, die steuern, was nach einer Interaktion passiert – z. B. welcher Step als nächstes angezeigt wird oder ob das Formular abgesendet wird.
-
-<Frame>
-  <img src="/images/convert/funnels/funnel-editor/conditions.png" />
-</Frame>
-
-Dabei teilen sich die Conditions in **Einfach** und **Erweitert** auf. Für beide Varianten stehen dieselben Aktionen zur Verfügung:
-
-| Aktion |
-|---|
-| Nächster Schritt |
-| Vorheriger Schritt |
-| Gehe zu Schritt … |
-| Weiterleitung |
-| Formular absenden |
-| Formular abbrechen |
-
-#### Einfache Conditions
-
-Mit einer einfachen Condition legen Sie fest, welche Aktion bei einer Interaktion ausgeführt wird.
-
-#### Erweiterte Conditions
-
-Mit erweiterten Conditions lassen sich Regeln mit beliebig vielen Bedingungen definieren. Es können mehrere **Rules** erstellt werden, und jede Rule kann mehrere Bedingungen enthalten.
-
-    <Frame>
-      <img src="/images/convert/funnels/funnel-editor/conditions.png" />
-    </Frame>
-
-Aufbau einer Bedingung:
-
-1. **Wenn** – Auswahl des Blocks, dessen Wert geprüft wird
-2. **Operator** – Gleich / Ungleich / Ist eins von / Ist gesetzt
-3. **Wert** – der zu prüfende Wert
-4. **Dann** – die Aktion, die ausgeführt wird
 ---
 
 ## Design & Darstellung
@@ -130,8 +53,8 @@ Wenn alles passt, genügt ein Klick auf **Publish** – der Funnel ist sofort ve
   <Accordion title="Kann ich einen Step nachträglich verschieben oder löschen?">
     Ja, Steps lassen sich jederzeit per Drag & Drop umsortieren oder über das Kontextmenü löschen. Verknüpfte Logik wird dabei entsprechend angepasst.
   </Accordion>
-  <Accordion title="Was passiert, wenn ich keine Logik an einen Block setze?">
-    Ohne explizite Logik führt der Funnel automatisch zum nächsten Step in der Reihenfolge weiter.
+  <Accordion title="Kann ich den Funnel vor der Veröffentlichung testen?">
+    Ja, über die Vorschau-Funktion lässt sich der Funnel jederzeit in der Desktop- und Mobilansicht testen – ohne ihn veröffentlichen zu müssen.
   </Accordion>
   <Accordion title="Kann ich einen Funnel nach der Veröffentlichung noch bearbeiten?">
     Ja, Änderungen können jederzeit vorgenommen werden. Nach dem Speichern sind sie sofort im Live-Funnel aktiv.

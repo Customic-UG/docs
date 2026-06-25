@@ -72,7 +72,14 @@
             "icon": "filter",
             "pages": [
               "convert/funnels/index",
-              "convert/funnels/funnel-editor"
+              {
+                "group": "Funnel Editor",
+                "pages": [
+                  "convert/funnels/funnel-editor",
+                  "convert/funnels/blocks",
+                  "convert/funnels/conditions"
+                ]
+              }
             ]
           }
         ]
