@@ -21,7 +21,7 @@
     "tabs": [
       {
         "tab": "Portal",
-        "groups": [
+        "pages": [
           {
             "group": "Erste Schritte",
             "icon": "compass",
@@ -43,15 +43,13 @@
             "pages": [
               "portal/settings/index"
             ]
-          }
+          },
+          "untitled-page"
         ]
       },
          {
       "tab": "API Reference",
-      "openapi": "https://api.osiro.com/doc",
-      "pages": [
-        "untitled-page"
-      ]
+      "openapi": "https://api.osiro.com/doc"
     },
     {
         "tab": "Convert",
