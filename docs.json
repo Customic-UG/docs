@@ -48,7 +48,10 @@
       },
          {
       "tab": "API Reference",
-      "openapi": "https://api.osiro.com/doc"
+      "openapi": "https://api.osiro.com/doc",
+      "pages": [
+        "untitled-page"
+      ]
     },
     {
         "tab": "Convert",
