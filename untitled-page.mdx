@@ -1,212 +1,118 @@
 ---
 title: "Osiro MCP Server"
-description: "Build, style, analyze, and automate Osiro lead-capture funnels and email sequences directly from an AI client through the Model Context Protocol."
+description: "Connect Osiro to Claude or any AI assistant to build, style, analyze, and automate your lead-capture funnels and email sequences — in plain language."
 icon: "plug"
 ---
 
-The **Osiro MCP server** exposes Osiro's funnels, style guides, messages, email sequences, and analytics as [Model Context Protocol](https://modelcontextprotocol.io) tools. Connect it to any MCP-capable client (Claude, IDE agents, custom hosts) and drive Osiro in natural language — "build me a 3-step lead funnel", "why is step 2 losing people?", "draft a 4-email nurture sequence and go live".
+The **Osiro MCP server** lets you drive Osiro from Claude or any AI assistant that supports connectors. Once connected, you can ask your assistant to build a funnel, restyle it, dig into its analytics, or draft and launch an email sequence — all in natural language, without leaving the chat.
 
-Everything is scoped to the **organizations the authenticated user belongs to**. The server never sees data outside your orgs, and every tool runs as _you_.
-
-<Info>
-  **Server name:** `osiro-mcp` · **Transport:** Streamable HTTP (SSE) · **Endpoint:** `/mcp`
-</Info>
-
-## Connecting
-
-### Endpoint
-
-The MCP server is mounted at the `/mcp` path of the Osiro API host.
-
-| Environment | Base URL |
-| --- | --- |
-| Production | `https://api.osiro.app/mcp` |
-| Staging | `https://api.osiro.dev/mcp` |
-| Local dev | `http://localhost:3004/mcp` |
-
-<Note>
-  Confirm the exact API host for your deployment before publishing — the path is always `/mcp`, but the base host follows your API deployment.
-</Note>
-
-### Authentication
-
-Authentication is **OAuth 2.0 / 2.1 with Dynamic Client Registration (RFC 7591)**. Supabase acts as the authorization server; the MCP endpoint is a protected resource that validates the bearer access token on every request.
-
-<Steps>
-  <Step title="Discover">
-    The client fetches OAuth Protected Resource Metadata (RFC 9728) from `/.well-known/oauth-protected-resource`, which points `authorization_servers` at Supabase's auth server.
-  </Step>
-  <Step title="Register">
-    The client registers itself dynamically against Supabase's registration endpoint — no client ID needs to be pre-provisioned or hard-coded.
-  </Step>
-  <Step title="Authorize & consent">
-    The user logs in and approves the connection on Osiro's consent screen.
-  </Step>
-  <Step title="Call">
-    The client sends `Authorization: Bearer <access_token>` to `/mcp`. A missing or invalid token returns `401` with a `WWW-Authenticate` challenge that restarts discovery.
-  </Step>
-</Steps>
-
-<Warning>
-  This server is **not** authless. Every tool call requires a valid Supabase access token — there is no anonymous access to any tool.
-</Warning>
-
-## Core concepts
+Everything runs as **you**: the assistant only ever sees the funnels, messages, and analytics in the organizations your Osiro account belongs to.
 
 <CardGroup cols={2}>
-  <Card title="Funnel" icon="filter">
-    An ordered list of **steps** (screens). Each step holds **blocks** (heading, text, input, button, choice, …) rendered top to bottom. Identified by UUID.
+  <Card title="Build funnels" icon="filter">
+    Create multi-step lead-capture funnels, add and rearrange screens and fields, and set up branching logic.
   </Card>
 
-  <Card title="Block & composition" icon="cube">
-    A block is one element on a step. A **composition** is a ready-made, container-rooted pattern (multi-select, rating, scale, …) with layout and navigation rules pre-wired.
+  <Card title="Style them" icon="palette">
+    Change brand colors, fonts, corner radius, and layout to match your look.
   </Card>
 
-  <Card title="Style guide" icon="palette">
-    A funnel's colors, fonts, radius, and layout. Guides can be shared across funnels — editing a shared guide copies it first (copy-on-write).
+  <Card title="Read analytics" icon="chart-line">
+    See starts, completions, conversion rate, where people drop off, and how each traffic source performs.
   </Card>
 
-  <Card title="Message & sequence" icon="envelope">
-    A **message** is a markdown email template. A **sequence** is an ordered list of steps (send / wait / end) that drips messages to leads over time.
+  <Card title="Automate email" icon="envelope">
+    Write emails, wire them into drip sequences, and launch them to your leads.
   </Card>
 </CardGroup>
 
-### Analytics semantics
+## Connect the server
 
-- A **start** is a `funnel_started` event; a **completion** is a `form_submitted` event.
-- **Conversion rate** = completions ÷ starts (%), counted by **distinct session**.
-- **UTM** and **referrer** reflect how the session was acquired (captured at start).
-- All timestamps and buckets are **UTC**.
-- A **segment** (utm\*, referrer, deviceType, browser, os) scopes the _entire_ result — including conversion rate and drop-off — to matching sessions, so you can compare cohorts.
+<Steps>
+  <Step title="Add the connector">
+    In Claude (or your MCP-capable assistant), add a new connector and paste the Osiro MCP URL:
 
-## Typical workflows
+    ```text
+    https://api.osiro.app/mcp
+    ```
+  </Step>
+  <Step title="Sign in">
+    You'll be sent to Osiro to log in and approve the connection. This links the assistant to your Osiro account securely — you can revoke access at any time.
+  </Step>
+  <Step title="Start asking">
+    That's it. Ask your assistant to list your funnels, check last week's numbers, or draft an email sequence.
+  </Step>
+</Steps>
+
+<Info>
+  The assistant always works on your funnel's **draft**. Reviewing and publishing changes stays in your hands inside the Osiro app.
+</Info>
+
+## What you can ask
 
 <Tabs>
-  <Tab title="Analyze a funnel">
-    1. `list_funnels` — discover funnel ids (never guess a `funnelId`).
-    2. `get_funnel_analytics` — overview, per-step drop-off, device/UTM/referrer breakdowns, answer distributions.
-    3. `get_funnel_timeseries` — trends over time, or zoom a span with `since`/`until`.
-    4. Re-query with a `segment` to compare cohorts (e.g. `google/cpc` vs `facebook/paid`).
+  <Tab title="Analyze">
+    - "List my funnels."
+    - "Give me a conversion summary for my Webinar Signup funnel — where do people drop off?"
+    - "Show weekly trends for the last 90 days."
+    - "Compare the Google Ads campaign against Facebook — which converts better?"
   </Tab>
-  <Tab title="Build a funnel">
-    1. `list_organizations` — get an `organizationId`.
-    2. `list_block_types` → `get_block_schema` — pick blocks and learn their config.
-    3. `create_funnel` — create a draft with ordered steps and blocks.
-    4. `get_funnel_structure` → `add_block` / `edit_block` / `add_step` / `set_step_rules` — refine. Publishing stays a manual step in the app.
+  <Tab title="Build">
+    - "Create a lead-capture funnel with a headline, an email field, a qualifying question, and a thank-you screen."
+    - "Add a phone-number field to step 2 of my Demo Booking funnel."
+    - "Branch to a different screen when someone selects _Enterprise_."
+  </Tab>
+  <Tab title="Style">
+    - "Show me the current styling for my main funnel."
+    - "Make the primary color #2DBD78 and use Inter for headings."
+    - "Switch it to a boxed layout with a light gray background."
   </Tab>
   <Tab title="Automate email">
-    1. `list_email_senders` — confirm the org has a verified sender.
-    2. `create_message` (or `create_email_sequence` one-shot) — author markdown emails.
-    3. `create_sequence` — wire steps (message / wait / end); created **paused**.
-    4. `activate_sequence` — set the trigger and go live (real sends begin).
+    - "Draft a 4-email welcome sequence for new trial signups, 2 days apart."
+    - "Add a follow-up email that only sends if they didn't open the last one."
+    - "Activate my Re-engagement sequence."
   </Tab>
 </Tabs>
 
-## Tool reference
+## Key things to know
 
-### Identity & discovery
+### Funnels
 
-| Tool | Description |
-| --- | --- |
-| `whoami` | Returns the currently authenticated Osiro user (id, email). |
-| `list_organizations` | Lists the organizations you belong to. Source of `organizationId`. |
-| `list_funnels` | Lists funnels you can access across your orgs. Start here to get a `funnelId`. |
+A funnel is a series of **screens** (steps). Each screen holds **blocks** — headings, text, inputs, buttons, choices, and more. Your assistant can create a funnel, add or reorder screens and blocks, group fields together, and set up what happens after each screen (auto-advance, branch to another screen, submit, or redirect).
+
+Basic funnels work with no setup — a single-choice question advances on its own, and a button submits or moves forward. You only need to describe custom logic when you want branching.
 
 ### Analytics
 
-<AccordionGroup>
-  <Accordion title="get_funnel_analytics">
-    Analytics summary for one funnel over a time range: overview (starts, completions, conversion rate), per-step drop-off and branching routes, device/browser/OS, top referrers, UTM source/medium/campaign/term/content, and the distribution of submitted answers.
-
-    **Inputs:** `funnelId` (uuid), `range` (`today` · `yesterday` · `7d` · `30d` · `90d` · `all`, default `30d`), plus optional segment: `utmSource`, `utmMedium`, `utmCampaign`, `utmTerm`, `utmContent`, `referrer`, `deviceType`, `browser`, `os`.
-  </Accordion>
-
-  <Accordion title="get_funnel_timeseries">
-    Funnel starts and completions bucketed over time to spot trends or zoom in.
-
-    **Inputs:** `funnelId` (uuid), `granularity` (`hour` · `day` · `week`, default `day`), `range` (preset window; ignored when `since` \+ `until` are both set), `since` / `until` (ISO datetimes to zoom a span), plus the same segment filters as above. Buckets are UTC.
-  </Accordion>
-</AccordionGroup>
-
-### Funnel building
-
-| Tool | Description |
-| --- | --- |
-| `create_funnel` | Creates a new draft funnel under an org with ordered steps and blocks. |
-| `get_funnel_structure` | Returns a funnel's steps and blocks with their short ids. **Read before editing.** |
-| `add_step` | Inserts a new step (optionally with blocks) into an existing funnel. |
-| `remove_step` | Removes a step and its blocks (a funnel must keep ≥ 1 step). |
-| `rename_step` | Sets a step's internal name. |
-| `move_step` | Reorders a step to a new 0-based position. |
-| `add_block` | Adds a block to a step; nest inside a container with `parentId`. |
-| `edit_block` | Patches one block's config (merged over current, validated against schema). |
-| `remove_block` | Removes a block by id; drops any step rules that referenced it. |
-| `move_block` | Reorders a block or moves it to another step (carrying its rules). |
-| `set_step_rules` | Replaces a step's navigation/branching rules (overwrites; `[]` clears). |
-| `list_block_types` | Lists every block type with description, `whenToUse`, and keywords. |
-| `get_block_schema` | Returns a block type's config as JSON Schema \+ defaults. |
-| `list_compositions` | Lists prebuilt, container-rooted block patterns. |
-| `add_composition` | Drops a composition onto a step with blocks, layout, and rules pre-wired. |
-| `search_icons` | Searches icon/emoji libraries for glyphs to place on icon-capable blocks. |
-
-<Note>
-  New blocks come with sensible default navigation (a single-select choice auto-advances; a button advances or submits). Use `set_step_rules` only to customize — e.g. branch with `go_to_step` based on an answer. Edits save to the funnel's **draft**; publishing stays manual in the app.
-</Note>
-
-<Accordion title="Rule shape (set_step_rules)">
-  Each rule has:
-
-  - `field` — the block id whose answer is checked.
-  - `triggeredBy` _(optional)_ — a block id, e.g. a button.
-  - `condition` — single `{operator, value}`, compound `{connector, conditions[]}`, or `null` (always fire).
-  - `action[]` — e.g. `[{type:'next_step'}]`, `[{type:'go_to_step', stepId:'<id>'}]`, `[{type:'submit_form'}]`, `[{type:'redirect', url:'…'}]`.
-  - `behavior` — `auto` (fires when the condition is met) or `on_click` (fires when `triggeredBy` is clicked).
-</Accordion>
+- A **start** is when someone opens your funnel; a **completion** is when they submit it.
+- **Conversion rate** = completions ÷ starts, counted per visitor session.
+- You can narrow any report to a **slice** — a single campaign, device type, browser, or referrer — to compare how different audiences perform.
+- All dates and times are in **UTC**.
 
 ### Styling
 
-| Tool | Description |
-| --- | --- |
-| `get_style_guide` | Returns a funnel's colors, fonts, radius, layout, valid options, and whether the guide is shared. **Read before styling.** |
-| `set_style_guide` | Updates styling — brand colors (level1–level4), element/form colors, fonts, radius, sizing, spacing, animation, boxed-layout surfaces. Copy-on-write for shared guides. |
+Brand colors, element and form colors, heading/body fonts, corner radius, spacing, step animations, and full-width vs. boxed layout are all adjustable. Just describe what you want changed — text colors are picked automatically for good contrast, so you don't have to manage them.
 
-<Info>
-  Colors are 6-digit hex (e.g. `#2DBD78`). **level1** = primary/CTA, **level2** = headings/dark text, **level3/level4** = accents. Fonts must be families served by [Bunny Fonts](https://fonts.bunny.net). Text colors are computed automatically for contrast — you don't set them.
-</Info>
+<Note>
+  If a funnel shares a style guide with others, restyling it automatically makes a private copy first — so your other funnels are never affected.
+</Note>
 
 ### Messages & email sequences
 
-| Tool | Description |
-| --- | --- |
-| `list_message_variables` | Lists merge fields you can insert as `{{name}}` (plus the `{{link}}` special). |
-| `list_style_guides` | Lists the org's named style guides used to theme emails. |
-| `list_email_senders` | Lists senders and whether each is verified (required to activate a sequence). |
-| `list_messages` | Lists the org's email templates and whether each is ready to send. |
-| `get_message` | Returns a message's name, subject, preview, and plaintext body view. |
-| `create_message` | Creates an email from **markdown only** (the org style guide themes it). |
-| `update_message` | Replaces a message's name, subject, and body. |
-| `list_sequences` | Lists sequences with step count and active/paused state. |
-| `get_sequence` | Returns a sequence's steps, trigger, exit conditions, and audience. |
-| `create_sequence` | Creates a **paused** sequence from steps (message / wait / end). |
-| `update_sequence` | Replaces a paused sequence's steps/audience (refused on a live one). |
-| `activate_sequence` | Sets the trigger and goes live — **begins real sends to real leads**. |
-| `create_email_sequence` | One-shot: creates the messages **and** the paused sequence together. |
+- A **message** is an email you write in plain, simple formatting; Osiro themes it to look good automatically.
+- A **sequence** drips messages to your leads over time, with waits in between (for example, "2 days" or "36 hours").
+- You can restrict a sequence to a specific **audience**, and have it stop early when a lead converts.
 
 <Warning>
-  Sequences are always created **paused** — nothing is sent until you call `activate_sequence`, which requires the org to have a **verified email sender**. Only the email channel is deliverable. An unsubscribe link is appended to every email automatically — never add your own.
+  Sequences are always created **paused** — nothing is sent until you activate one. Activating requires a **verified email sender** on your organization, and begins real sends to real leads. Every email includes an unsubscribe link automatically.
 </Warning>
 
-<Accordion title="Message authoring rules">
-  - Body is **markdown only** — no HTML, colors, or inline styling.
-  - Supports `#`/`##`/`###` headings, `**bold**`, `*italic*`, ``code``, `-` lists, `---` dividers, `![alt](url)` images.
-  - A link **alone on its own line** becomes a CTA button; an inline `[text](url)` stays inline.
-  - Insert merge fields as `{{first_name}}` etc. — call `list_message_variables` for valid names.
-  - Waits use human durations: `"2d"`, `"36h"`, `"90m"`, or a number of minutes.
-</Accordion>
+## Privacy & access
 
-## Error handling
+- The assistant only sees data in the organizations **your** Osiro account can access.
+- You sign in through Osiro to authorize the connection, and can revoke it any time from your account.
+- Nothing is sent to your leads until you explicitly activate a sequence.
 
-- Tools return a JSON text payload on success.
-- Access failures (funnel/org/message not accessible to you) return a clear error message rather than crashing the connection.
-- Config you pass is **validated against the block's schema** — an invalid value comes back as a fixable error rather than corrupting the funnel.
-- `create_email_sequence` rolls back any messages it created if a later step fails, so a partial failure leaves no orphaned drafts.
+## Need help?
+
+If a request doesn't work as expected, try asking your assistant to "list my funnels" or "list my organizations" first — it works best when it starts from your real data rather than guessing. For account, billing, or sender verification issues, reach out to the Osiro team through your dashboard.
