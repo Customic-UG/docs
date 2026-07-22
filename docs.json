@@ -41,7 +41,8 @@
             "group": "Einstellungen",
             "icon": "gear",
             "pages": [
-              "portal/settings/index"
+              "portal/settings/index",
+              "portal/account/passkeys"
             ]
           },
           "mcp-docs"
