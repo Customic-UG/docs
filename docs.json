@@ -66,14 +66,16 @@
             "group": "Landing Pages",
             "icon": "display",
             "pages": [
-              "convert/landing-pages/index"
+              "convert/landing-pages/index",
+              "convert/landing-pages/colors"
             ]
           },
           {
             "group": "Funnels",
             "icon": "filter",
             "pages": [
-              "convert/funnels/index"
+              "convert/funnels/index",
+              "convert/funnels/colors"
             ]
           },
           {
