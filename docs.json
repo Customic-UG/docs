@@ -66,16 +66,14 @@
             "group": "Landing Pages",
             "icon": "display",
             "pages": [
-              "convert/landing-pages/index",
-              "convert/landing-pages/colors"
+              "convert/landing-pages/index"
             ]
           },
           {
             "group": "Funnels",
             "icon": "filter",
             "pages": [
-              "convert/funnels/index",
-              "convert/funnels/colors"
+              "convert/funnels/index"
             ]
           },
           {
@@ -85,6 +83,17 @@
               "convert/funnel-editor/funnel-editor",
               "convert/funnel-editor/blocks",
               "convert/funnel-editor/conditions"
+            ]
+          },
+          {
+            "group": "Design",
+            "icon": "palette",
+            "pages": [
+              "convert/design/styleguide",
+              "convert/design/colors",
+              "convert/design/typografie",
+              "convert/design/element-einstellungen",
+              "convert/design/layout"
             ]
           }
         ]
