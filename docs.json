@@ -42,6 +42,7 @@
             "icon": "gear",
             "pages": [
               "portal/settings/index",
+              "portal/settings/language",
               "portal/account/passkeys"
             ]
           },
