@@ -22,6 +22,7 @@ Mintlify-Dokumentation für osiro (Produkte: **Portal**, **Convert**, **Hunter**
 - FAQ-Abschnitt meist als letzter Abschnitt: `## Häufige Fragen` mit `<AccordionGroup>` / `<Accordion>`.
 - Wenn Detailwissen fehlt: **Platzhalter explizit markieren** ("Platzhalter – ...") statt zu raten oder Fakten zu erfinden. Bei echter Unsicherheit lieber kurz nachfragen.
 - Granularität: lieber mehrere kleine, aufgabenspezifische Artikel als eine breite Sammelseite (z. B. eigene Artikel für Farben, Typografie, Element-Einstellungen, Layout statt einer "Design"-Sammelseite).
+- Der `title` einer Index-Seite darf nie 1:1 dem Namen ihrer Group entsprechen (sonst zeigt die Sidebar z. B. "Funnels / Funnels"). Stattdessen konkreter/fragend formulieren, z. B. "Was ist ein Funnel?", "Was ist Convert?", "Account erstellen".
 
 ## Convert – Design-Bereich
 

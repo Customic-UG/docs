@@ -49,10 +49,6 @@
           "mcp-docs"
         ]
       },
-         {
-      "tab": "API Reference",
-      "openapi": "https://api.osiro.com/doc"
-    },
     {
         "tab": "Convert",
         "groups": [
@@ -100,6 +96,25 @@
         ]
       },
       {
+        "tab": "Message",
+        "groups": [
+          {
+            "group": "Flows",
+            "icon": "route",
+            "pages": [
+              "message/flows/index"
+            ]
+          },
+          {
+            "group": "Vorlagen",
+            "icon": "copy",
+            "pages": [
+              "message/vorlagen/index"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Hunter",
         "groups": [
           {
@@ -138,7 +153,11 @@
             ]
           }
         ]
-      }
+      },
+         {
+      "tab": "API Reference",
+      "openapi": "https://api.osiro.com/doc"
+    }
     ]
   },
   "logo": {
