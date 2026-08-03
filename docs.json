@@ -99,17 +99,42 @@
         "tab": "Message",
         "groups": [
           {
+            "group": "Überblick",
+            "icon": "compass",
+            "pages": [
+              "message/essentials/index"
+            ]
+          },
+          {
             "group": "Flows",
             "icon": "route",
             "pages": [
-              "message/flows/index"
+              "message/flows/index",
+              "message/flows/grundlagen",
+              "message/flows/aufbau",
+              {
+                "group": "Blöcke",
+                "expanded": true,
+                "pages": [
+                  "message/flows/einstiegs-bedingungen",
+                  "message/flows/nachricht",
+                  "message/flows/warten",
+                  "message/flows/ausstiegs-bedingungen"
+                ]
+              },
+              "message/flows/leads",
+              "message/flows/analyse"
             ]
           },
           {
             "group": "Vorlagen",
             "icon": "copy",
             "pages": [
-              "message/vorlagen/index"
+              "message/vorlagen/index",
+              "message/vorlagen/grundlagen",
+              "message/vorlagen/email-editor",
+              "message/vorlagen/analysen",
+              "message/vorlagen/einstellungen"
             ]
           }
         ]
