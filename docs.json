@@ -67,6 +67,36 @@
             ]
           },
           {
+            "group": "Landing Page Editor",
+            "icon": "sliders",
+            "pages": [
+              "convert/landing-page-editor/grundlagen",
+              {
+                "group": "Blöcke",
+                "expanded": true,
+                "pages": [
+                  "convert/landing-page-editor/hero",
+                  "convert/landing-page-editor/cta",
+                  "convert/landing-page-editor/benefits",
+                  "convert/landing-page-editor/contact",
+                  "convert/landing-page-editor/faq",
+                  "convert/landing-page-editor/funnel",
+                  "convert/landing-page-editor/interactive-steps",
+                  "convert/landing-page-editor/logo-stripe",
+                  "convert/landing-page-editor/steps",
+                  "convert/landing-page-editor/navigation",
+                  "convert/landing-page-editor/promo-bar",
+                  "convert/landing-page-editor/reviews",
+                  "convert/landing-page-editor/trust-block",
+                  "convert/landing-page-editor/usp-bar",
+                  "convert/landing-page-editor/footer",
+                  "convert/landing-page-editor/container"
+                ]
+              },
+              "convert/landing-page-editor/einstellungen"
+            ]
+          },
+          {
             "group": "Funnels",
             "icon": "filter",
             "pages": [
