@@ -93,6 +93,15 @@
                   "convert/landing-page-editor/container"
                 ]
               },
+              {
+                "group": "Element-Konfiguration",
+                "expanded": true,
+                "pages": [
+                  "convert/landing-page-editor/button",
+                  "convert/landing-page-editor/icons",
+                  "convert/landing-page-editor/bilder"
+                ]
+              },
               "convert/landing-page-editor/einstellungen"
             ]
           },
