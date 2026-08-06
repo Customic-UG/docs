@@ -102,7 +102,8 @@
                   "convert/landing-page-editor/bilder"
                 ]
               },
-              "convert/landing-page-editor/einstellungen"
+              "convert/landing-page-editor/einstellungen",
+                  "convert/landing-page-editor/variablen"
             ]
           },
           {
