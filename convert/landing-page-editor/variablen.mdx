@@ -1,0 +1,61 @@
+---
+title: Variablen
+description: Text auf Ihrer Landing Page abhängig von einem URL-Parameter dynamisch anpassen.
+---
+
+## Überblick
+
+Mit Variablen zeigen Sie unterschiedliche Texte auf ein und derselben Landing Page an – abhängig davon, mit welchem Link ein Besucher auf die Seite kommt. So lässt sich z. B. eine Landing Page für mehrere Städte oder Kampagnen verwenden, statt für jede eine eigene Seite zu bauen.
+
+---
+
+## Variable konfigurieren
+
+<img src="/images/convert/landing-page-editor/variablen/variablen_config.png" style={{maxWidth: '500px'}} />
+
+| Einstellung | Beschreibung |
+|---|---|
+| **Variablenname** | Name der Variable, z. B. "Stadt". |
+| **Standardwert** | Wert, der angezeigt wird, wenn kein passender URL-Parameter vorhanden ist. |
+| **Verwendung im Text** | Zeigt an, mit welchem Platzhalter (z. B. `{{Stadt}}`) Sie die Variable in Textfeldern verwenden. |
+| **Parameter Bedingungen → URL Parameter** | Name des Query-Parameters in der URL, der ausgelesen wird, z. B. `stadt`. |
+| **Parameter-Wert / Variablenwert** | Zuordnung: Steht dieser Wert im URL-Parameter, wird die Variable durch den zugehörigen Variablenwert ersetzt. Über "Wert hinzufügen" lassen sich beliebig viele Zuordnungen ergänzen. |
+
+---
+
+## Verwendung im Editor
+
+In einem Textfeld eines Blocks fügen Sie den Platzhalter (z. B. `{{Stadt}}`) direkt in den Text ein.
+
+<img src="/images/convert/landing-page-editor/variablen/editor_config.png" />
+
+---
+
+## Beispielaufruf
+
+Am Beispiel der Variable "Stadt" mit Standardwert "Berlin" und den Zuordnungen `karlsruhe` → "Karlsruhe" sowie `stuttgart` → "Stuttgart":
+
+<div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
+  <div>
+    <p>Ohne Parameter (Standardwert)</p>
+    <img src="/images/convert/landing-page-editor/variablen/standardwert.png" style={{maxWidth: '320px'}} />
+  </div>
+  <div>
+    <p><code>?stadt=karlsruhe</code></p>
+    <img src="/images/convert/landing-page-editor/variablen/karlsruhe.png" style={{maxWidth: '320px'}} />
+  </div>
+  <div>
+    <p><code>?stadt=stuttgart</code></p>
+    <img src="/images/convert/landing-page-editor/variablen/stuttgart.png" style={{maxWidth: '320px'}} />
+  </div>
+</div>
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Was passiert, wenn der URL-Parameter fehlt oder keinem hinterlegten Wert entspricht?">
+    Dann wird der Standardwert angezeigt.
+  </Accordion>
+</AccordionGroup>
