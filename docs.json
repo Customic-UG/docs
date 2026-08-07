@@ -34,7 +34,8 @@
             "group": "Abbonement & Pläne",
             "icon": "credit-card",
             "pages": [
-              "portal/abonnement/index"
+              "portal/abonnement/index",
+              "portal/abonnement/welches-abo-passt-zu-mir"
             ]
           },
           {
