@@ -176,6 +176,13 @@
               "message/vorlagen/analysen",
               "message/vorlagen/einstellungen"
             ]
+          },
+          {
+            "group": "Konfiguration",
+            "icon": "gear",
+            "pages": [
+              "message/konfiguration/automatisierung"
+            ]
           }
         ]
       },
