@@ -1,118 +1,117 @@
 ---
 title: "MCP Server"
-description: "Connect osiro to Claude or any AI assistant to build, style, analyze, and automate your lead-capture funnels and email sequences — in plain language."
-icon: "plug"
+description: "osiro mit Claude oder einem beliebigen KI-Assistenten verbinden, um Ihre Funnels und E-Mail-Flows in natürlicher Sprache zu erstellen, gestalten, analysieren und automatisieren."
 ---
 
-The **osiro MCP server** lets you drive osiro from Claude or any AI assistant that supports connectors. Once connected, you can ask your assistant to build a funnel, restyle it, dig into its analytics, or draft and launch an email sequence — all in natural language, without leaving the chat.
+Der **osiro MCP-Server** lässt Sie osiro direkt aus Claude oder einem beliebigen MCP-fähigen KI-Assistenten heraus steuern. Einmal verbunden, können Sie Ihren Assistenten bitten, einen Funnel zu erstellen, ihn neu zu gestalten, sich in dessen Analysen einzuarbeiten oder einen E-Mail-Flow zu entwerfen und zu starten – alles in natürlicher Sprache, ohne den Chat zu verlassen.
 
-Everything runs as **you**: the assistant only ever sees the funnels, messages, and analytics in the organizations your osiro account belongs to.
+Der Assistent handelt dabei immer mit **Ihren eigenen Zugriffsrechten**: Er sieht ausschließlich die Funnels, Vorlagen und Analysen der Organisationen, zu denen Ihr osiro-Account gehört.
 
 <CardGroup cols={2}>
-  <Card title="Build funnels" icon="filter">
-    Create multi-step lead-capture funnels, add and rearrange screens and fields, and set up branching logic.
+  <Card title="Funnels erstellen" icon="filter">
+    Mehrstufige Lead-Funnels erstellen, Steps und Felder hinzufügen bzw. neu anordnen und Verzweigungslogik einrichten.
   </Card>
 
-  <Card title="Style them" icon="palette">
-    Change brand colors, fonts, corner radius, and layout to match your look.
+  <Card title="Design anpassen" icon="palette">
+    Markenfarben, Schriftarten, Eckenradius und Layout an Ihr Erscheinungsbild anpassen.
   </Card>
 
-  <Card title="Read analytics" icon="chart-line">
-    See starts, completions, conversion rate, where people drop off, and how each traffic source performs.
+  <Card title="Analysen auswerten" icon="chart-line">
+    Starts, Abschlüsse, Abschlussrate, Absprungpunkte und die Performance jeder Traffic-Quelle einsehen.
   </Card>
 
-  <Card title="Automate email" icon="envelope">
-    Write emails, wire them into drip sequences, and launch them to your leads.
+  <Card title="E-Mails automatisieren" icon="envelope">
+    E-Mails schreiben, in Flows einbinden und an Ihre Leads verschicken.
   </Card>
 </CardGroup>
 
-## Connect the server
+## Server verbinden
 
 <Steps>
-  <Step title="Add the connector">
-    In Claude (or your MCP-capable assistant), add a new connector and paste the Osiro MCP URL:
+  <Step title="Connector hinzufügen">
+    Fügen Sie in Claude (oder Ihrem MCP-fähigen Assistenten) einen neuen Connector hinzu und tragen Sie die osiro-MCP-URL ein:
 
     ```text
     https://api.osiro.app/mcp
     ```
   </Step>
-  <Step title="Sign in">
-    You'll be sent to Osiro to log in and approve the connection. This links the assistant to your Osiro account securely — you can revoke access at any time.
+  <Step title="Anmelden">
+    Sie werden zu osiro weitergeleitet, um sich anzumelden und die Verbindung zu bestätigen. Das verknüpft den Assistenten sicher mit Ihrem osiro-Account – Sie können den Zugriff jederzeit widerrufen.
   </Step>
-  <Step title="Start asking">
-    That's it. Ask your assistant to list your funnels, check last week's numbers, or draft an email sequence.
+  <Step title="Loslegen">
+    Das war's. Bitten Sie Ihren Assistenten, Ihre Funnels aufzulisten, die Zahlen der letzten Woche zu prüfen oder einen E-Mail-Flow zu entwerfen.
   </Step>
 </Steps>
 
 <Info>
-  The assistant always works on your funnel's **draft**. Reviewing and publishing changes stays in your hands inside the Osiro app.
+  Der Assistent bearbeitet immer nur den **Entwurf** Ihres Funnels. Das Prüfen und Veröffentlichen der Änderungen bleibt bei Ihnen – direkt in der osiro App.
 </Info>
 
-## What you can ask
+## Was Sie fragen können
 
 <Tabs>
-  <Tab title="Analyze">
-    - "List my funnels."
-    - "Give me a conversion summary for my Webinar Signup funnel — where do people drop off?"
-    - "Show weekly trends for the last 90 days."
-    - "Compare the Google Ads campaign against Facebook — which converts better?"
+  <Tab title="Analysieren">
+    - „Liste alle meine Funnels auf."
+    - „Gib mir eine Zusammenfassung der Abschlussrate für meinen Funnel ‚Webinar-Anmeldung' – wo brechen Nutzer ab?"
+    - „Zeig mir die wöchentlichen Trends der letzten 90 Tage."
+    - „Vergleiche die Google-Ads-Kampagne mit Facebook – welche schneidet besser ab?"
   </Tab>
-  <Tab title="Build">
-    - "Create a lead-capture funnel with a headline, an email field, a qualifying question, and a thank-you screen."
-    - "Add a phone-number field to step 2 of my Demo Booking funnel."
-    - "Branch to a different screen when someone selects _Enterprise_."
+  <Tab title="Erstellen">
+    - „Erstelle einen Lead-Funnel mit einer Überschrift, einem E-Mail-Feld, einer Qualifizierungsfrage und einem Danke-Step."
+    - „Füge Step 2 meines Funnels ‚Demo-Buchung' ein Telefonnummer-Feld hinzu."
+    - „Verzweige zu einem anderen Step, wenn jemand ‚Enterprise' auswählt."
   </Tab>
-  <Tab title="Style">
-    - "Show me the current styling for my main funnel."
-    - "Make the primary color #2DBD78 and use Inter for headings."
-    - "Switch it to a boxed layout with a light gray background."
+  <Tab title="Design">
+    - „Zeig mir das aktuelle Design meines Haupt-Funnels."
+    - „Setze die Primärfarbe auf #2DBD78 und verwende Inter für Überschriften."
+    - „Stelle auf ein Boxed-Layout mit hellgrauem Hintergrund um."
   </Tab>
-  <Tab title="Automate email">
-    - "Draft a 4-email welcome sequence for new trial signups, 2 days apart."
-    - "Add a follow-up email that only sends if they didn't open the last one."
-    - "Activate my Re-engagement sequence."
+  <Tab title="E-Mail automatisieren">
+    - „Entwirf einen 4-teiligen Willkommens-Flow für neue Testphasen-Anmeldungen, im Abstand von 2 Tagen."
+    - „Füge eine Folge-E-Mail hinzu, die nur verschickt wird, wenn die letzte nicht geöffnet wurde."
+    - „Aktiviere meinen Re-Engagement-Flow."
   </Tab>
 </Tabs>
 
-## Key things to know
+## Wichtig zu wissen
 
 ### Funnels
 
-A funnel is a series of **screens** (steps). Each screen holds **blocks** — headings, text, inputs, buttons, choices, and more. Your assistant can create a funnel, add or reorder screens and blocks, group fields together, and set up what happens after each screen (auto-advance, branch to another screen, submit, or redirect).
+Ein Funnel besteht aus mehreren **Steps**. Jeder Step enthält **Blöcke** – Überschriften, Text, Eingabefelder, Buttons, Auswahlmöglichkeiten und mehr. Der Assistent kann einen Funnel erstellen, Steps und Blöcke hinzufügen oder neu anordnen, Felder gruppieren und festlegen, was nach jedem Step passiert (automatisch weiter, zu einem anderen Step verzweigen, absenden oder weiterleiten).
 
-Basic funnels work with no setup — a single-choice question advances on its own, and a button submits or moves forward. You only need to describe custom logic when you want branching.
+Einfache Funnels funktionieren ganz ohne zusätzliche Einrichtung – eine Single-Choice-Frage führt automatisch weiter, ein Button sendet ab oder springt zum nächsten Step. Eigene Logik müssen Sie nur beschreiben, wenn Sie verzweigen möchten. → [Funnel Editor](/convert/funnel-editor/funnel-editor)
 
-### Analytics
+### Analysen
 
-- A **start** is when someone opens your funnel; a **completion** is when they submit it.
-- **Conversion rate** = completions ÷ starts, counted per visitor session.
-- You can narrow any report to a **slice** — a single campaign, device type, browser, or referrer — to compare how different audiences perform.
-- All dates and times are in **UTC**.
+- Ein **Start** ist, wenn jemand Ihren Funnel öffnet; ein **Abschluss** ist, wenn er ihn absendet.
+- **Abschlussrate** = Abschlüsse ÷ Starts, gezählt pro Besuchersitzung.
+- Jede Auswertung lässt sich auf ein **Segment** eingrenzen – eine einzelne Kampagne, einen Gerätetyp, Browser oder Referrer –, um zu vergleichen, wie unterschiedliche Zielgruppen abschneiden.
+- Alle Datums- und Zeitangaben sind in **UTC**.
 
-### Styling
+### Design
 
-Brand colors, element and form colors, heading/body fonts, corner radius, spacing, step animations, and full-width vs. boxed layout are all adjustable. Just describe what you want changed — text colors are picked automatically for good contrast, so you don't have to manage them.
+Markenfarben, Element- und Formularfarben, Schriftarten für Überschrift und Fließtext, Eckenradius, Abstände, Step-Animationen sowie Vollbild- vs. Boxed-Layout lassen sich alle anpassen. Beschreiben Sie einfach, was geändert werden soll – Textfarben werden für guten Kontrast automatisch gewählt, darum müssen Sie sich nicht kümmern. → [Styleguide](/convert/design/styleguide)
 
 <Note>
-  If a funnel shares a style guide with others, restyling it automatically makes a private copy first — so your other funnels are never affected.
+  Teilt sich ein Funnel einen Styleguide mit anderen, wird beim Anpassen automatisch zuerst eine private Kopie erstellt – Ihre anderen Funnels bleiben also unberührt.
 </Note>
 
-### Messages & email sequences
+### Vorlagen & Flows
 
-- A **message** is an email you write in plain, simple formatting; Osiro themes it to look good automatically.
-- A **sequence** drips messages to your leads over time, with waits in between (for example, "2 days" or "36 hours").
-- You can restrict a sequence to a specific **audience**, and have it stop early when a lead converts.
+- Eine **Vorlage** ist eine E-Mail, die Sie in einfacher, schlichter Formatierung schreiben; osiro gestaltet sie automatisch passend im Design Ihres Styleguides.
+- Ein **Flow** verschickt Vorlagen zeitversetzt an Ihre Leads, mit Wartezeiten dazwischen (z. B. „2 Tage" oder „36 Stunden").
+- Sie können einen Flow auf bestimmte Leads eingrenzen und ihn vorzeitig beenden, sobald ein Lead konvertiert. → [Vorlagen](/message/vorlagen/index) · [Flows](/message/flows/index)
 
 <Warning>
-  Sequences are always created **paused** — nothing is sent until you activate one. Activating requires a **verified email sender** on your organization, and begins real sends to real leads. Every email includes an unsubscribe link automatically.
+  Flows werden immer **pausiert** angelegt – es wird nichts verschickt, bevor Sie einen Flow aktivieren. Für die Aktivierung ist ein [verifizierter E-Mail-Absender](/message/konfiguration/automatisierung) in Ihrer Organisation erforderlich, danach beginnt der echte Versand an echte Leads. Jede E-Mail enthält automatisch einen Abmeldelink.
 </Warning>
 
-## Privacy & access
+## Datenschutz & Zugriff
 
-- The assistant only sees data in the organizations **your** Osiro account can access.
-- You sign in through Osiro to authorize the connection, and can revoke it any time from your account.
-- Nothing is sent to your leads until you explicitly activate a sequence.
+- Der Assistent sieht nur Daten aus den Organisationen, auf die **Ihr** osiro-Account Zugriff hat.
+- Sie melden sich über osiro an, um die Verbindung zu autorisieren, und können sie jederzeit über Ihren Account widerrufen.
+- An Ihre Leads wird nichts verschickt, bevor Sie einen Flow explizit aktivieren.
 
-## Need help?
+## Brauchen Sie Hilfe?
 
-If a request doesn't work as expected, try asking your assistant to "list my funnels" or "list my organizations" first — it works best when it starts from your real data rather than guessing. For account, billing, or sender verification issues, reach out to the Osiro team through your dashboard.
+Falls eine Anfrage nicht wie erwartet funktioniert, bitten Sie Ihren Assistenten zunächst, „meine Funnels auflisten" oder „meine Organisationen auflisten" – er arbeitet am besten, wenn er von Ihren echten Daten ausgeht, statt zu raten. Bei Fragen zu Account, Abrechnung oder Absender-Verifizierung wenden Sie sich über Ihr Dashboard an das osiro-Team.
