@@ -44,10 +44,10 @@
             "pages": [
               "portal/settings/index",
               "portal/settings/language",
-              "portal/account/passkeys"
+              "portal/account/passkeys",
+              "mcp-docs"
             ]
-          },
-          "mcp-docs"
+          }
         ]
       },
     {
