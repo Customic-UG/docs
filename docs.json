@@ -264,5 +264,8 @@
       "github": "https://github.com/customic-ug",
       "linkedin": "https://linkedin.com/company/osiroapp"
     }
+  },
+  "fonts": {
+    "family": "Geist"
   }
 }
