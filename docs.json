@@ -122,7 +122,8 @@
               "convert/funnel-editor/funnel-editor",
               "convert/funnel-editor/blocks",
               "convert/funnel-editor/conditions",
-              "convert/funnel-editor/google-tag-manager"
+              "convert/funnel-editor/google-tag-manager",
+              "convert/funnel-editor/consent-mode"
             ]
           },
           {

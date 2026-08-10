@@ -41,7 +41,7 @@ Cookie-Banner und Usercentrics schließen sich gegenseitig aus – die Aktivieru
 
 Der Banner sendet automatisch die nötigen Consent-Signale (Google Consent Mode v2) an `window.dataLayer` – an der Landing Page selbst müssen Sie dafür nichts einstellen. Diese Signale nutzt z. B. das Tracking Ihres Funnels (Google Tag Manager Container, Meta-Pixel), um erst nach Zustimmung des Besuchers zu laden.
 
-Wie Sie das in Ihrem Google Tag Manager Container einrichten, erklärt der Artikel [Google Tag Manager einrichten](/convert/funnel-editor/google-tag-manager).
+Wie Sie das in Ihrem Google Tag Manager Container einrichten, erklärt der Artikel [Tracking mit Consent Mode absichern](/convert/funnel-editor/consent-mode).
 
 ---
 
@@ -73,7 +73,13 @@ Weiterführende Dokumentation: [cookieconsent.orestbida.com/advanced/manage-scri
 ## Häufige Fragen
 
 <AccordionGroup>
-  <Accordion title="Platzhalter">
-    Platzhalter – FAQ ergänzen, sobald offene Fragen aus dem Kunden-Support vorliegen.
+  <Accordion title="Kann ich Cookie-Banner und Usercentrics gleichzeitig nutzen?">
+    Nein, die beiden Integrationen schließen sich gegenseitig aus. Aktivieren Sie eine der beiden, wird die andere automatisch deaktiviert.
+  </Accordion>
+  <Accordion title="Muss ich den Banner für jede Landing Page einzeln aktivieren?">
+    Ja, die Einstellung liegt unter Einstellungen → Integrationen der jeweiligen Landing Page und gilt nur für diese eine Seite.
+  </Accordion>
+  <Accordion title="Was passiert mit Scripts, die weder data-category noch data-service besitzen?">
+    Sie laufen ganz normal wie jedes andere Script auf der Seite – nur Scripts mit `type="text/plain"` und `data-category` werden vom Cookie-Banner blockiert und erst nach Zustimmung ausgeführt.
   </Accordion>
 </AccordionGroup>

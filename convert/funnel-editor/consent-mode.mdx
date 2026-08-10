@@ -1,0 +1,79 @@
+---
+title: Tracking mit Consent Mode absichern
+description: GTM-Tags und Events erst nach Zustimmung im Cookie-Banner feuern lassen.
+---
+
+## Überblick
+
+Dieser Artikel baut auf [Google Tag Manager einrichten](/convert/funnel-editor/google-tag-manager) auf und zeigt, wie Sie sicherstellen, dass Ihre Tags in Google Tag Manager die Zustimmung des Besuchers respektieren.
+
+<Note>
+Voraussetzung ist der [Cookie-Banner](/convert/landing-page-editor/cookie-banner) auf der zugehörigen Landing Page. Ist dieser nicht aktiv, fehlen die Consent-Signale, auf die dieser Artikel sich bezieht.
+</Note>
+
+---
+
+## Google Consent Mode v2
+
+Der osiro Cookie-Banner sendet Consent-Signale automatisch an `window.dataLayer`, sodass diese in Ihrem Google Tag Manager Container ankommen, ohne dass Sie Consent Mode selbst einrichten müssen:
+
+- Beim Laden der Seite wird zunächst ein **Default** mit allem auf „verweigert" gesetzt.
+- Sobald der Besucher eine Auswahl trifft, folgt ein **Update** entsprechend seiner Wahl.
+
+| Kategorie | Consent-Mode-Signal |
+|---|---|
+| Analyse | `analytics_storage` |
+| Werbung | `ad_storage`, `ad_user_data`, `ad_personalization` |
+
+<Note>
+Das betrifft nicht nur die Consent-Mode-Signale, sondern auch die [Funnel-Events](/convert/funnel-editor/google-tag-manager) sowie die Integrationen dieses Funnels selbst: osiro pusht `funnel_started`, `step_viewed` & Co. nur, wenn die Kategorie **Analyse** akzeptiert wurde – genau wie der GTM-Container des Funnels an **Analyse** und das Meta-Pixel an **Werbung** gekoppelt ist. Ist auf der Seite gar kein Consent-Tool aktiv, gelten Events standardmäßig als erlaubt.
+</Note>
+
+<Warning>
+Der Consent Mode wird nur auf Seiten gesendet, auf denen der osiro Cookie-Banner die Consent-Hoheit besitzt. Ist ein Funnel auf einer fremden Seite eingebettet, deklariert osiro dort keinen Consent – das dort eingesetzte CMP bleibt zuständig.
+</Warning>
+
+---
+
+## GTM-Trigger: `client-consent-update`
+
+Bei der ersten Zustimmung sowie bei jeder späteren Änderung sendet osiro zusätzlich ein `client-consent-update`-Event an den Data Layer. Anders als die Consent-Mode-Signale von oben ist dieses Event ein reiner **Auslöser** ("es gab gerade eine Entscheidung, schau nochmal nach") ohne eigenen granted/denied-Wert.
+
+<Steps>
+  <Step title="Trigger anlegen">
+    Legen Sie unter **Trigger → Neu** einen Trigger vom Typ **Custom Event** an. Tragen Sie im Feld **Event-Name** exakt `client-consent-update` ein (Regex-Option bleibt deaktiviert) und speichern Sie den Trigger, z. B. unter dem Namen „Custom Event – osiro Consent Update".
+
+    <img src="/images/convert/funnel-editor/gtm/trigger-configuration.png"/>
+  </Step>
+  <Step title="Trigger am Tag ergänzen">
+    Öffnen Sie den Tag, der erst nach Zustimmung feuern soll (z. B. ein Werbe-Pixel), und fügen Sie den neuen Custom-Event-Trigger als Auslöser hinzu.
+
+    <img src="/images/convert/funnel-editor/gtm/added_triggers.png"/>
+  </Step>
+  <Step title="Consent-Prüfung absichern">
+    Da `client-consent-update` bei **jeder** Entscheidung feuert – auch bei einer Ablehnung – reicht der Trigger allein nicht aus. Ergänzen Sie am Tag zusätzlich eine Prüfung, dass die relevante Kategorie tatsächlich `granted` ist (`analytics_storage` für Analyse-Tags, `ad_storage` / `ad_user_data` / `ad_personalization` für Werbe-Tags). In Google Tag Manager heißt diese Funktion **„Additional Consent Checks"** und liegt normalerweise unter **Advanced Settings → Consent Settings** im Tag.
+  </Step>
+</Steps>
+
+<Tip>
+Für Google-eigene Tags (z. B. Google Analytics: GA4-Konfiguration, Google Ads) reicht in der Regel der eingebaute Consent Mode – sie berücksichtigen die von osiro gesendeten Consent-Signale automatisch, ohne dass eine zusätzliche Prüfung nötig ist. Additional Consent Checks sind vor allem für Tags relevant, die Consent Mode nicht nativ unterstützen, z. B. benutzerdefinierte HTML-Tags oder Drittanbieter-Pixel.
+</Tip>
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Warum feuert mein Tag auch bei Ablehnung, wenn ich nur den client-consent-update-Trigger nutze?">
+    Weil dieses Event bei jeder Consent-Entscheidung feuert – auch bei einer Ablehnung, nicht nur bei Zustimmung. Der Trigger allein sagt nichts darüber aus, wie die Entscheidung ausfiel. Ergänzen Sie deshalb zusätzlich Additional Consent Checks, die die tatsächliche Kategorie prüfen.
+  </Accordion>
+  <Accordion title="Muss ich für jeden Tag einen eigenen Custom-Event-Trigger anlegen?">
+    Nein, ein einmal angelegter Trigger auf `client-consent-update` lässt sich an beliebig vielen Tags als Auslöser hinterlegen.
+  </Accordion>
+  <Accordion title="Funktioniert Consent Mode auch, wenn mein Funnel auf einer fremden Website eingebettet ist?">
+    Nein. Consent Mode wird nur auf Seiten gesendet, auf denen der osiro Cookie-Banner die Consent-Hoheit besitzt. Bei einem eingebetteten Funnel auf einer fremden Seite bleibt das dort eingesetzte CMP zuständig.
+  </Accordion>
+  <Accordion title="Brauche ich Additional Consent Checks auch für Google Analytics- oder Google-Ads-Tags?">
+    In der Regel nicht. Diese Tags unterstützen Consent Mode nativ und berücksichtigen die von osiro gesendeten Signale automatisch. Additional Consent Checks sind vor allem für Tags relevant, die das nicht tun, z. B. benutzerdefinierte HTML-Tags oder Drittanbieter-Pixel.
+  </Accordion>
+</AccordionGroup>

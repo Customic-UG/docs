@@ -1,6 +1,6 @@
 ---
 title: Google Tag Manager einrichten
-description: Das Tracking Ihres Funnels erst nach Zustimmung im Cookie-Banner feuern lassen.
+description: Ihren Funnel mit einem eigenen GTM-Container verbinden und die automatisch gesendeten Events nutzen.
 ---
 
 ## Überblick
@@ -9,66 +9,110 @@ Verbinden Sie Ihren Google Tag Manager Container unter **Funnel Editor → Einst
 
 <img src="/images/convert/funnel-editor/gtm/configuration.png"/>
 
-<Note>
-Voraussetzung für DSGVO-konformes Tracking ist der [Cookie-Banner](/convert/landing-page-editor/cookie-banner) auf der zugehörigen Landing Page. Ist dieser nicht aktiv, fehlen die Consent-Signale, auf die dieser Artikel sich bezieht.
-</Note>
-
----
-
-## Google Consent Mode v2
-
-Der osiro Cookie-Banner sendet Consent-Signale automatisch an `window.dataLayer`, sodass diese in Ihrem Google Tag Manager Container ankommen, ohne dass Sie Consent Mode selbst einrichten müssen:
-
-- Beim Laden der Seite wird zunächst ein **Default** mit allem auf „verweigert" gesetzt.
-- Sobald der Besucher eine Auswahl trifft, folgt ein **Update** entsprechend seiner Wahl.
-
-| Kategorie | Consent-Mode-Signal |
-|---|---|
-| Analyse | `analytics_storage` |
-| Werbung | `ad_storage`, `ad_user_data`, `ad_personalization` |
-
-<Warning>
-Der Consent Mode wird nur auf Seiten gesendet, auf denen der osiro Cookie-Banner die Consent-Hoheit besitzt. Ist ein Funnel auf einer fremden Seite eingebettet, deklariert osiro dort keinen Consent – das dort eingesetzte CMP bleibt zuständig.
-</Warning>
-
----
-
-## GTM-Trigger: `client-consent-update`
-
-Bei der ersten Zustimmung sowie bei jeder späteren Änderung sendet osiro zusätzlich ein `client-consent-update`-Event an den Data Layer. Wichtig für das Verständnis: Dieses Event ist ein reiner **Auslöser** ("es gab gerade eine Entscheidung, schau nochmal nach") – es transportiert selbst **keinen** Wert, ob akzeptiert oder abgelehnt wurde. Diesen Wert kennt Google Tag Manager bereits automatisch über die Consent-Mode-Signale von oben (`analytics_storage`, `ad_storage` etc.), die unabhängig vom Event laufen.
-
-<Steps>
-  <Step title="Trigger anlegen">
-    Legen Sie unter **Trigger → Neu** einen Trigger vom Typ **Custom Event** an. Tragen Sie im Feld **Event-Name** exakt `client-consent-update` ein (Regex-Option bleibt deaktiviert) und speichern Sie den Trigger, z. B. unter dem Namen „Custom Event – osiro Consent Update".
-
-    <img src="/images/convert/funnel-editor/gtm/trigger-configuration.png"/>
-  </Step>
-  <Step title="Trigger am Tag ergänzen">
-    Öffnen Sie den Tag, der erst nach Zustimmung feuern soll (z. B. ein Werbe-Pixel), und fügen Sie den neuen Custom-Event-Trigger als Auslöser hinzu.
-
-    <img src="/images/convert/funnel-editor/gtm/added_triggers.png"/>
-  </Step>
-  <Step title="Consent-Prüfung absichern">
-    Da `client-consent-update` bei **jeder** Entscheidung feuert – auch bei einer Ablehnung – reicht der Trigger allein nicht aus. Ergänzen Sie am Tag zusätzlich eine Prüfung, dass die relevante Kategorie tatsächlich `granted` ist (`analytics_storage` für Analyse-Tags, `ad_storage` / `ad_user_data` / `ad_personalization` für Werbe-Tags). In Google Tag Manager heißt diese Funktion **„Additional Consent Checks"** und liegt normalerweise unter **Advanced Settings → Consent Settings** im Tag.
-  </Step>
-</Steps>
-
 <Tip>
-Für Google-eigene Tags (z. B. Google Analytics: GA4-Konfiguration, Google Ads) reicht in der Regel der eingebaute Consent Mode – sie berücksichtigen die von osiro gesendeten Consent-Signale automatisch, ohne dass eine zusätzliche Prüfung nötig ist. Additional Consent Checks sind vor allem für Tags relevant, die Consent Mode nicht nativ unterstützen, z. B. benutzerdefinierte HTML-Tags oder Drittanbieter-Pixel.
+Damit Ihre Tags in Google Tag Manager erst nach Zustimmung im Cookie-Banner feuern, siehe [Tracking mit Consent Mode absichern](/convert/funnel-editor/consent-mode).
 </Tip>
 
 ---
 
-## Zusammenspiel: GTM-Container & Meta-Pixel
+## Events im Data Layer
 
-Der GTM-Container eines Funnels ist an die Kategorie **Analyse** gekoppelt, das Meta-Pixel an die Kategorie **Werbung** – beide laufen also erst, sobald der Besucher der jeweiligen Kategorie zugestimmt hat.
+Sobald die Tag Manager ID gespeichert ist, lädt osiro `gtm.js` automatisch auf jeder Funnel-Seite und initialisiert `window.dataLayer` – ein manuelles Einbinden des GTM-Snippets in den Seiten-Code ist nicht nötig. Ab diesem Zeitpunkt pusht osiro automatisch die unten aufgeführten Events. Sie müssen in Google Tag Manager nur noch einen Trigger vom Typ **Custom Event** (Event-Name = jeweiliger Event-Name) sowie Data-Layer-Variablen für die benötigten Felder anlegen.
+
+<Note>
+Diese Events feuern nur, wenn der Besucher der Kategorie **Analyse** zugestimmt hat – Details dazu unter [Tracking mit Consent Mode absichern](/convert/funnel-editor/consent-mode).
+</Note>
+
+Jedes Event enthält zusätzlich automatisch die Kampagnenparameter aus der URL:
+
+| Feld | Beschreibung |
+|---|---|
+| `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content` | Standard-UTM-Parameter |
+| `gclid`, `gbraid`, `wbraid` | Google-Ads-Click-IDs |
+| `fbclid` | Meta-Click-ID |
+
+<Card title="funnel_started" icon="flag">
+  Feuert einmalig, sobald ein Besucher den ersten Schritt des Funnels sieht.
+
+  | Feld | Beschreibung |
+  |---|---|
+  | `funnel_id` | ID des Funnels |
+  | `step_id`, `step_name` | Erster Schritt |
+  | `step_index` | `0` |
+  | `total_steps` | Gesamtzahl der Schritte |
+</Card>
+
+<Card title="step_viewed" icon="eye">
+  Feuert bei jedem Schrittwechsel – inklusive des ersten Schritts (gemeinsam mit `funnel_started`).
+
+  | Feld | Beschreibung |
+  |---|---|
+  | `funnel_id`, `step_id`, `step_name`, `step_index`, `total_steps` | wie oben |
+  | `block_internal_names` | Interne Namen der Blöcke auf diesem Schritt (falls vergeben) |
+</Card>
+
+<Card title="step_completed" icon="check">
+  Feuert, wenn ein Besucher einen Schritt verlässt und zum nächsten wechselt.
+
+  | Feld | Beschreibung |
+  |---|---|
+  | `funnel_id`, `step_id`, `step_name`, `step_index`, `total_steps` | Bezieht sich auf den verlassenen Schritt |
+
+  Enthält keine Antwortwerte – nur, dass der Schritt abgeschlossen wurde.
+</Card>
+
+<Card title="funnel_success" icon="circle-check">
+  Feuert, wenn der Funnel erfolgreich abgesendet wurde – das ist Ihr Conversion-Event.
+
+  | Feld | Beschreibung |
+  |---|---|
+  | `funnel_id`, `step_id`, `step_name` | Letzter Schritt |
+  | `lead_id` | ID des erzeugten Leads |
+  | `leadUserData` | Kontaktdaten des Leads (E-Mail, Telefon, Name), nutzbar für Google Enhanced Conversions und Meta Advanced Matching |
+
+  Kontaktdaten werden nicht im Klartext an GTM übergeben, sondern verschlüsselt. `leadUserData` kann in seltenen Fällen fehlen (z. B. älterer Browser) – das Event feuert trotzdem.
+</Card>
+
+<Card title="form_error" icon="triangle-exclamation">
+  Feuert, wenn ein Absende-Versuch fehlschlägt (Validierung oder Server-Fehler) und der Besucher auf dem Schritt bleibt.
+
+  | Feld | Beschreibung |
+  |---|---|
+  | `funnel_id`, `step_id`, `step_name` | Betroffener Schritt |
+  | `errors` | Fehlermeldungen je Feld |
+</Card>
+
+### Was nicht übertragen wird
+
+Einzelne Frage-/Antwort-Paare (z. B. „Nutzer hat ‚Flachdach' ausgewählt") werden nicht an GTM gesendet – diese Daten laufen ausschließlich über osiros eigene Funnel-Analytics.
+
+---
+
+## Empfohlene Verknüpfung mit Google Ads, GA4 & Meta
+
+| osiro-Event | Google Ads | GA4 | Meta Ads |
+|---|---|---|---|
+| `funnel_started` | – | Als Custom Event, für Funnel-Explorer | – |
+| `step_viewed` / `step_completed` | – | Als Custom Event, für Drop-off-Analyse zwischen Schritten | – |
+| `funnel_success` | Als Conversion-Aktion anlegen; mit `leadUserData` für Enhanced Conversions verknüpfen | Als Conversion markieren (z. B. `generate_lead`) | Über Conversions API mit `leadUserData` für Advanced Matching |
+| `form_error` | – | Für Fehler-Überwachung, nicht als Conversion | – |
+
+<Tip>
+Damit diese Tags erst nach Zustimmung im Cookie-Banner feuern, siehe [Tracking mit Consent Mode absichern](/convert/funnel-editor/consent-mode).
+</Tip>
 
 ---
 
 ## Häufige Fragen
 
 <AccordionGroup>
-  <Accordion title="Platzhalter">
-    Platzhalter – FAQ ergänzen, sobald offene Fragen aus dem Kunden-Support vorliegen.
+  <Accordion title="Muss ich das GTM-Snippet selbst in den Seiten-Code einbauen?">
+    Nein. Sobald Sie die Tag Manager ID gespeichert haben, lädt osiro `gtm.js` automatisch auf jeder Funnel-Seite – ein manuelles Einbinden ist nicht nötig.
+  </Accordion>
+  <Accordion title="Werden auch einzelne Antworten aus dem Funnel an GTM übertragen?">
+    Nein. Einzelne Frage-/Antwort-Paare laufen ausschließlich über osiros eigene Funnel-Analytics und werden nicht an den Data Layer gesendet.
+  </Accordion>
+  <Accordion title="Feuern die Events auch ohne aktiven Cookie-Banner?">
+    Ist gar kein Consent-Tool auf der Seite aktiv, gelten die Events standardmäßig als erlaubt und feuern normal. Ist der osiro Cookie-Banner aktiv, feuern sie nur nach Zustimmung zur Kategorie Analyse – Details dazu unter [Tracking mit Consent Mode absichern](/convert/funnel-editor/consent-mode).
   </Accordion>
 </AccordionGroup>
