@@ -121,7 +121,8 @@
             "pages": [
               "convert/funnel-editor/funnel-editor",
               "convert/funnel-editor/blocks",
-              "convert/funnel-editor/conditions"
+              "convert/funnel-editor/conditions",
+              "convert/funnel-editor/google-tag-manager"
             ]
           },
           {

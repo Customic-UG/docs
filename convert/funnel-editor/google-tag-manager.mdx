@@ -1,0 +1,80 @@
+---
+title: Google Tag Manager einrichten
+description: Das Tracking Ihres Funnels erst nach Zustimmung im Cookie-Banner feuern lassen.
+---
+
+## Überblick
+
+Verbinden Sie Ihren Google Tag Manager Container unter **Funnel Editor → Einstellungen → Integrationen → Tracking → Google Tag Manager** über „Verbinden" mit Ihrer **Tag Manager ID** (optional zusätzlich mit einer **Tag Manager Script URL**).
+
+<img src="/images/convert/funnel-editor/gtm/configuration.png"/>
+
+<Note>
+Voraussetzung für DSGVO-konformes Tracking ist der [Cookie-Banner](/convert/landing-page-editor/cookie-banner) auf der zugehörigen Landing Page. Ist dieser nicht aktiv, fehlen die Consent-Signale, auf die dieser Artikel sich bezieht.
+</Note>
+
+---
+
+## Google Consent Mode v2
+
+Der osiro Cookie-Banner sendet Consent-Signale automatisch an `window.dataLayer`, sodass diese in Ihrem Google Tag Manager Container ankommen, ohne dass Sie Consent Mode selbst einrichten müssen:
+
+- Beim Laden der Seite wird zunächst ein **Default** mit allem auf „verweigert" gesetzt.
+- Sobald der Besucher eine Auswahl trifft, folgt ein **Update** entsprechend seiner Wahl.
+
+| Kategorie | Consent-Mode-Signal |
+|---|---|
+| Analyse | `analytics_storage` |
+| Werbung | `ad_storage`, `ad_user_data`, `ad_personalization` |
+
+<Warning>
+Der Consent Mode wird nur auf Seiten gesendet, auf denen der osiro Cookie-Banner die Consent-Hoheit besitzt. Ist ein Funnel auf einer fremden Seite eingebettet, deklariert osiro dort keinen Consent – das dort eingesetzte CMP bleibt zuständig.
+</Warning>
+
+---
+
+## GTM-Trigger: `client-consent-update`
+
+Bei der ersten Zustimmung sowie bei jeder späteren Änderung sendet osiro zusätzlich ein `client-consent-update`-Event an den Data Layer. Wichtig für das Verständnis: Dieses Event ist ein reiner **Auslöser** ("es gab gerade eine Entscheidung, schau nochmal nach") – es transportiert selbst **keinen** Wert, ob akzeptiert oder abgelehnt wurde. Diesen Wert kennt Google Tag Manager bereits automatisch über die Consent-Mode-Signale von oben (`analytics_storage`, `ad_storage` etc.), die unabhängig vom Event laufen.
+
+<Steps>
+  <Step title="Trigger anlegen">
+    Legen Sie unter **Trigger → Neu** einen Trigger vom Typ **Custom Event** an. Tragen Sie im Feld **Event-Name** exakt `client-consent-update` ein (Regex-Option bleibt deaktiviert) und speichern Sie den Trigger, z. B. unter dem Namen „Custom Event – osiro Consent Update".
+
+    <img src="/images/convert/funnel-editor/gtm/trigger-configuration.png"/>
+  </Step>
+  <Step title="Trigger am Tag ergänzen">
+    Öffnen Sie den Tag, der erst nach Zustimmung feuern soll (z. B. ein Werbe-Pixel), und fügen Sie den neuen Custom-Event-Trigger als Auslöser hinzu.
+
+    <img src="/images/convert/funnel-editor/gtm/added_triggers.png"/>
+  </Step>
+  <Step title="Consent-Prüfung absichern">
+    Da `client-consent-update` bei **jeder** Entscheidung feuert – auch bei einer Ablehnung – reicht der Trigger allein nicht aus. Ergänzen Sie am Tag zusätzlich eine Prüfung, dass die relevante Kategorie tatsächlich `granted` ist (`analytics_storage` für Analyse-Tags, `ad_storage` / `ad_user_data` / `ad_personalization` für Werbe-Tags). In Google Tag Manager heißt diese Funktion **„Additional Consent Checks"** und liegt normalerweise unter **Advanced Settings → Consent Settings** im Tag.
+  </Step>
+</Steps>
+
+<Warning>
+In unseren eigenen Tests war „Advanced Settings" bei einem neu angelegten Custom-HTML-Tag nicht auffindbar (auch nach Speichern und Aktivieren von „Enable consent overview" im Container). Das kann an der GTM-Version, dem Tag-Typ oder einem UI-Rollout liegen. Prüfen Sie das direkt in Ihrem eigenen Container – ggf. über die kontextsensitive Hilfe (?-Symbol) in Ihrem Tag.
+</Warning>
+
+<Tip>
+Für Google-eigene Tags (z. B. Google Analytics: GA4-Konfiguration, Google Ads) reicht in der Regel der eingebaute Consent Mode – sie berücksichtigen die von osiro gesendeten Consent-Signale automatisch, ohne dass eine zusätzliche Prüfung nötig ist. Additional Consent Checks sind vor allem für Tags relevant, die Consent Mode nicht nativ unterstützen, z. B. benutzerdefinierte HTML-Tags oder Drittanbieter-Pixel.
+</Tip>
+
+Platzhalter – Screenshot der Consent-Einstellungen am Tag, sobald der genaue UI-Pfad bestätigt ist.
+
+---
+
+## Zusammenspiel: GTM-Container & Meta-Pixel
+
+Der GTM-Container eines Funnels ist an die Kategorie **Analyse** gekoppelt, das Meta-Pixel an die Kategorie **Werbung** – beide laufen also erst, sobald der Besucher der jeweiligen Kategorie zugestimmt hat.
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Platzhalter">
+    Platzhalter – FAQ ergänzen, sobald offene Fragen aus dem Kunden-Support vorliegen.
+  </Accordion>
+</AccordionGroup>
