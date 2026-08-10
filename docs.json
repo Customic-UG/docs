@@ -104,7 +104,8 @@
                 ]
               },
               "convert/landing-page-editor/einstellungen",
-                  "convert/landing-page-editor/variablen"
+              "convert/landing-page-editor/cookie-banner",
+              "convert/landing-page-editor/variablen"
             ]
           },
           {

@@ -1,0 +1,73 @@
+---
+title: Cookie-Banner
+description: Den osiro Cookie-Banner mit Google Tag Manager verbinden und externe Scripts erst nach Zustimmung laden.
+---
+
+## Überblick
+
+Der osiro Cookie-Banner ist ein datenschutzkonformer Consent-Banner mit drei Kategorien: **Notwendig**, **Analyse** und **Werbung**. Die Zustimmung wird im Cookie `osiro_cc` gespeichert.
+
+Platzhalter – kurze Einordnung, wann/warum Kunden den Banner statt Usercentrics nutzen würden.
+
+---
+
+## Banner aktivieren
+
+Aktivieren Sie den Banner unter **Landing Page → Einstellungen → Integrationen → Cookie-Banner**:
+
+<img src="/images/convert/landing-page-editor/cookie-banner/integrations.png"/>
+
+Wählen Sie anschließend eine Darstellung:
+
+- **Box (mittig)**
+- **Wolke (kompakt)**
+- **Leiste (volle Breite)**
+
+<img src="/images/convert/landing-page-editor/cookie-banner/konfiguration.png"/>
+
+<Note>
+Cookie-Banner und Usercentrics schließen sich gegenseitig aus – die Aktivierung einer Integration deaktiviert automatisch die andere.
+</Note>
+
+---
+
+## Tracking mit Google Tag Manager
+
+Der Banner sendet automatisch die nötigen Consent-Signale (Google Consent Mode v2) an `window.dataLayer` – an der Landing Page selbst müssen Sie dafür nichts einstellen. Diese Signale nutzt z. B. das Tracking Ihres Funnels (Google Tag Manager Container, Meta-Pixel), um erst nach Zustimmung des Besuchers zu laden.
+
+Wie Sie das in Ihrem Google Tag Manager Container einrichten, erklärt der Artikel [Google Tag Manager einrichten](/convert/funnel-editor/google-tag-manager).
+
+---
+
+## Externe Scripts blockieren
+
+Scripts mit `type="text/plain"` und einem `data-category`-Attribut werden von osiro so lange blockiert, bis die jeweilige Kategorie akzeptiert wurde – erst dann wird das Script ausgeführt.
+
+```html
+<!-- Wird erst nach Zustimmung zur Kategorie "analytics" ausgeführt -->
+<script type="text/plain" data-category="analytics" data-src="https://example.com/analytics.js"></script>
+
+<script type="text/plain" data-category="analytics">
+  // Inline-Code, gleiche Regel
+</script>
+```
+
+Zusätzliche Attribute:
+
+| Attribut | Wirkung |
+|---|---|
+| `data-service="Google Analytics"` | Bindet das Script an einen einzelnen Schalter im Präferenzen-Modal statt an die gesamte Kategorie |
+| `data-src` statt `src` | Verhindert, dass der Browser die Datei bereits vor der Zustimmung lädt |
+| `data-category="!analytics"` | Führt das Script aus, wenn die Kategorie **abgelehnt** wird (Escape-Hatch, selten benötigt) |
+
+Weiterführende Dokumentation: [cookieconsent.orestbida.com/advanced/manage-scripts.html](https://cookieconsent.orestbida.com/advanced/manage-scripts.html)
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Platzhalter">
+    Platzhalter – FAQ ergänzen, sobald offene Fragen aus dem Kunden-Support vorliegen.
+  </Accordion>
+</AccordionGroup>
