@@ -1,0 +1,73 @@
+---
+title: Einstellungen
+description: Grundeinstellungen, Benachrichtigungen, Integrationen und Versionen eines Funnels.
+---
+
+## Überblick
+
+Die Einstellungen eines Funnels gliedern sich in vier Bereiche: General, Notification, Integrations und Berechnete Felder.
+
+---
+
+## General
+
+- **Funnel-Name** – interner Name des Funnels
+- **Embed Funnel** – Domains, auf denen der Funnel eingebettet werden darf; das Einbetten auf einer nicht eingetragenen Domain führt zu einem Fehler
+- **Sicherheit** – Multi-Faktor-Authentifizierung: verlangt bei jeder Lead-Übermittlung einen zusätzlichen Verifizierungsschritt
+
+### Versionen
+
+Jede Veröffentlichung legt eine neue Version an. Die Liste zeigt zu jeder Version Zeitpunkt, Bearbeiter und Anzahl der Änderungen; die aktuell live geschaltete Version ist mit **LIVE** markiert. In der Detailansicht einer Version sehen Sie zusätzlich, von wem und wann sie veröffentlicht wurde sowie welche Steps sich geändert haben.
+
+<Frame>
+  <img src="/images/convert/funnel-editor/einstellungen/versionen.png" />
+</Frame>
+
+### Gefahrenzone
+
+- **Funnel offline nehmen** – nimmt den Funnel auf allen Domains offline
+- **Funnel löschen** – löscht den Funnel und alle Versionen unwiderruflich
+
+---
+
+## Notification
+
+**Email Notifications** – benachrichtigt per E-Mail, sobald jemand das Formular absendet.
+
+- **Email addresses** – eine oder mehrere Empfänger-Adressen, erweiterbar über "Add another email"
+- **Email Template** – das für die Benachrichtigung verwendete E-Mail-Template
+
+<Frame>
+  <img src="/images/convert/funnel-editor/einstellungen/notifications.png" />
+</Frame>
+
+---
+
+## Integrations
+
+Über das Suchfeld lassen sich die verfügbaren Integrationen filtern.
+
+### Lead Destination
+
+- **Hunter (Default)** – speichert Leads im Hunter-Dashboard
+- **Custom Webhook** – sendet Leads an einen eigenen Endpunkt
+- **Email Only** – versendet ausschließlich E-Mail-Benachrichtigungen, ohne die Leads zusätzlich zu speichern
+
+### Tracking
+
+- **Google Tag Manager** – siehe [Google Tag Manager](/convert/funnel-editor/google-tag-manager)
+- **Meta Pixel** – trackt Conversions für Facebook-/Instagram-Anzeigen
+
+<Frame>
+  <img src="/images/convert/funnel-editor/einstellungen/integrations.png" />
+</Frame>
+
+---
+
+## Berechnete Felder
+
+Berechnete Felder werden automatisch aus den Feldern des Funnels berechnet und beim Veröffentlichen dem Lead-Schema hinzugefügt.
+
+<Tip>Änderungen an berechneten Feldern werden erst mit der nächsten Veröffentlichung wirksam. Beim Speichern wird der Funnel bis dahin als nicht veröffentlicht markiert.</Tip>
+
+Weitere Felder lassen sich über "Berechnetes Feld hinzufügen" anlegen.
