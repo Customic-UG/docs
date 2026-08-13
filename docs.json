@@ -189,6 +189,7 @@
                   }
                 ]
               },
+              "convert/funnel-editor/validierung",
               "convert/funnel-editor/conditions",
               "convert/funnel-editor/analytics",
               "convert/funnel-editor/einstellungen",

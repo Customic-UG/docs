@@ -1,0 +1,46 @@
+---
+title: Validierung
+description: Regeln, die verhindern, dass Besucher ungültige oder unvollständige Angaben machen.
+---
+
+## Überblick
+
+Bestimmte Blöcke lassen sich mit **Validierung** versehen, die verhindert, dass der Funnel mit ungültigen oder unvollständigen Angaben fortgesetzt wird. Je Regel lässt sich optional eine eigene Fehlermeldung hinterlegen – ohne eigene Nachricht wird eine Standardmeldung angezeigt.
+
+---
+
+## Validierung für Inputs
+
+Bei Eingabefeldern (z. B. [Basic Input](/convert/funnel-editor/blocks/inputs/basic-input)) stehen folgende Regeln zur Verfügung:
+
+- **Required** – das Feld muss ausgefüllt werden
+- **Minimum Length** – Mindestanzahl an Zeichen
+- **Maximum Length** – maximale Anzahl an Zeichen
+- **Pattern (Regex)** – der Wert muss einem regulären Ausdruck entsprechen; weitere Patterns über "Pattern (Regex) hinzufügen"
+
+<img src="/images/convert/funnel-editor/validation/input.png"/>
+
+---
+
+## Validierung für Optionen
+
+Bei Auswahl-Blöcken mit mehreren Optionen (z. B. [Multi-Select](/convert/funnel-editor/blocks/choices/multi-select)) stehen folgende Regeln zur Verfügung:
+
+- **Required** – es muss mindestens eine Option ausgewählt werden
+- **Minimum Selections** – Mindestanzahl an ausgewählten Optionen
+- **Maximum Selections** – maximale Anzahl an ausgewählten Optionen
+
+<img src="/images/convert/funnel-editor/validation/options.png"/>
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Was passiert, wenn eine Validierungsregel nicht erfüllt ist?">
+    Der Funnel lässt den Besucher nicht zum nächsten Step weiter, bis die Regel erfüllt ist. Dabei wird die hinterlegte Fehlermeldung angezeigt.
+  </Accordion>
+  <Accordion title="Muss ich eine eigene Fehlermeldung hinterlegen?">
+    Nein, ohne eigene Nachricht wird automatisch eine Standardmeldung angezeigt.
+  </Accordion>
+</AccordionGroup>
