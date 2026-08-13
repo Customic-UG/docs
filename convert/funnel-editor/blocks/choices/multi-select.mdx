@@ -1,0 +1,36 @@
+---
+title: Multi-Select
+description: Auswahlfrage mit mehreren gleichzeitig wählbaren Optionen.
+---
+
+## Überblick
+
+Multi-Select funktioniert wie [Choice](/convert/funnel-editor/blocks/choices/choice), erlaubt aber die Auswahl mehrerer Optionen gleichzeitig. Da mehrere Optionen ausgewählt werden können, ist zum Fortfahren ein eigener Button nötig.
+
+<Tip>Einsatz für Fragen, bei denen mehrere Antworten gleichzeitig zutreffen können – z. B. "Welche Leistungen interessieren Sie?".</Tip>
+
+---
+
+## Komponenten
+
+Multi-Select ist ein Container aus mehreren Komponenten:
+
+### Text
+
+Ebene der Überschrift (H1–H4), Eyebrow, Überschrift, Beschreibung, Tooltip, Textausrichtung und Präfix (Keine, Symbol oder Text).
+
+<img src="/images/convert/funnel-editor/blocks/choices/multi_select-text.png"/>
+
+### Optionen
+
+Interner Name, Feldbezeichnung, Symbol je Option (optional aktivierbar) sowie die einzelnen Optionen mit Titel und Beschreibung; weitere über "Option hinzufügen". Die Auswahl lässt sich optional mit einem Kontaktfeld verknüpfen.
+
+<img src="/images/convert/funnel-editor/blocks/choices/mutli_select-options.png"/>
+
+Jede Option fungiert dabei als eigener Trigger: Über den Regeln-Tab lassen sich [Regeln](/convert/funnel-editor/conditions) hinterlegen, die festlegen, was nach der Auswahl passiert.
+
+### Button
+
+Siehe [Basic Button](/convert/funnel-editor/blocks/actions/basic-button).
+
+<img src="/images/convert/funnel-editor/blocks/choices/mutli_select-button.png"/>

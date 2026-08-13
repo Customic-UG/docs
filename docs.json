@@ -120,7 +120,76 @@
             "icon": "sliders",
             "pages": [
               "convert/funnel-editor/funnel-editor",
-              "convert/funnel-editor/blocks",
+              "convert/funnel-editor/block-grundlagen",
+              {
+                "group": "Blöcke",
+                "expanded": true,
+                "pages": [
+                  "convert/funnel-editor/blocks/index",
+                  "convert/funnel-editor/blocks/permanent/permanent",
+                  {
+                    "group": "Actions",
+                    "pages": [
+                      "convert/funnel-editor/blocks/actions/basic-button",
+                      "convert/funnel-editor/blocks/actions/back-button"
+                    ]
+                  },
+                  {
+                    "group": "Choices",
+                    "pages": [
+                      "convert/funnel-editor/blocks/choices/tags",
+                      "convert/funnel-editor/blocks/choices/rich-choice",
+                      "convert/funnel-editor/blocks/choices/choice",
+                      "convert/funnel-editor/blocks/choices/multi-select",
+                      "convert/funnel-editor/blocks/choices/picture-choice",
+                      "convert/funnel-editor/blocks/choices/rating",
+                      "convert/funnel-editor/blocks/choices/scale",
+                      "convert/funnel-editor/blocks/choices/range"
+                    ]
+                  },
+                  {
+                    "group": "Feedback",
+                    "pages": [
+                      "convert/funnel-editor/blocks/feedback/loading",
+                      "convert/funnel-editor/blocks/feedback/rich-loading"
+                    ]
+                  },
+                  {
+                    "group": "Inputs",
+                    "pages": [
+                      "convert/funnel-editor/blocks/inputs/basic-input",
+                      "convert/funnel-editor/blocks/inputs/currency",
+                      "convert/funnel-editor/blocks/inputs/phone-number",
+                      "convert/funnel-editor/blocks/inputs/checkbox",
+                      "convert/funnel-editor/blocks/inputs/select",
+                      "convert/funnel-editor/blocks/inputs/file-upload",
+                      "convert/funnel-editor/blocks/inputs/textarea",
+                      "convert/funnel-editor/blocks/inputs/mfa"
+                    ]
+                  },
+                  {
+                    "group": "Layout",
+                    "pages": [
+                      "convert/funnel-editor/blocks/layout/separator",
+                      "convert/funnel-editor/blocks/layout/logo",
+                      "convert/funnel-editor/blocks/layout/logo-grid",
+                      "convert/funnel-editor/blocks/layout/image",
+                      "convert/funnel-editor/blocks/layout/trust-field",
+                      "convert/funnel-editor/blocks/layout/info",
+                      "convert/funnel-editor/blocks/layout/calendar",
+                      "convert/funnel-editor/blocks/layout/container"
+                    ]
+                  },
+                  {
+                    "group": "Text",
+                    "pages": [
+                      "convert/funnel-editor/blocks/text/heading",
+                      "convert/funnel-editor/blocks/text/standard-text",
+                      "convert/funnel-editor/blocks/text/ai-text"
+                    ]
+                  }
+                ]
+              },
               "convert/funnel-editor/conditions",
               "convert/funnel-editor/analytics",
               "convert/funnel-editor/einstellungen",
