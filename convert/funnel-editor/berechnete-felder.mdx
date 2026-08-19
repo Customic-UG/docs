@@ -1,0 +1,35 @@
+---
+title: Berechnete Felder
+description: Zusätzliche Lead-Felder, die automatisch aus den Antworten eines Funnels berechnet werden.
+---
+
+## Überblick
+
+Berechnete Felder werden automatisch aus den Feldern des Funnels ermittelt und beim Veröffentlichen dem Lead-Schema hinzugefügt. Sie ergänzen damit die Werte, die Input-Blöcke bereits direkt über [Kontaktfeld zuordnen](/convert/funnel-editor/blocks/inputs/basic-input) im Lead ablegen – statt eine Antwort 1:1 zu übernehmen, wird hier ein neuer Wert aus einer oder mehreren Antworten abgeleitet.
+
+<Tip>Änderungen an berechneten Feldern werden erst mit der nächsten Veröffentlichung wirksam. Bis dahin wird der Funnel beim Speichern als nicht veröffentlicht markiert.</Tip>
+
+### Anwendungsbeispiel
+
+Ein B2B-Funnel für eine Filialkette fragt das geplante Kampagnenbudget ab (z. B. über [Currency](/convert/funnel-editor/blocks/inputs/currency)) sowie die Anzahl der Standorte (z. B. über [Basic Input](/convert/funnel-editor/blocks/inputs/basic-input)). Mit der Formel `{budget} / {standorte}` lässt sich daraus automatisch ein berechnetes Feld "Budget pro Standort" bilden. So lassen sich Leads mit hohem Budget pro Standort – tendenziell attraktivere, besser ausgestattete Kunden – im Hunter-Dashboard direkt von Leads mit knappem Budget pro Standort unterscheiden, ohne die Rechnung für jeden Lead einzeln durchführen zu müssen.
+
+---
+
+## Ein berechnetes Feld anlegen
+
+<Steps>
+  <Step title="Felder im Step anlegen">
+    Die Formel greift über den **Internen Namen** eines Blocks auf dessen Wert zu. Für unser Beispiel legen Sie im Step also einen [Currency](/convert/funnel-editor/blocks/inputs/currency)-Block mit internem Namen `budget` sowie einen [Basic Input](/convert/funnel-editor/blocks/inputs/basic-input)-Block für die Anzahl der Standorte an.
+
+    <img src="/images/convert/funnel-editor/berechnete-felder/step.png"/>
+  </Step>
+  <Step title="Berechnetes Feld erstellen">
+    Über "Berechnetes Feld hinzufügen" im Bereich **Einstellungen → Berechnete Felder** legen Sie das eigentliche Feld an.
+
+    <img src="/images/convert/funnel-editor/berechnete-felder/anlegen.png"/>
+
+    - **Name** – Name des berechneten Feldes
+    - **Ergebnistyp** – Datentyp des Ergebnisses (z. B. Zahl)
+    - **Formel** – die Berechnung selbst; über "Variable einfügen" lassen sich die internen Namen der Funnel-Felder als Platzhalter einfügen (z. B. `{budget}`) und miteinander verrechnen, z. B. `{budget} / {standorte}`
+  </Step>
+</Steps>
