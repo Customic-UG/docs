@@ -13,7 +13,7 @@ Mintlify-Dokumentation für osiro (Produkte: **Portal**, **Convert**, **Message*
 - **Groups bleiben grundsätzlich flach**, keine Group-in-Group-Verschachtelung. Grund: Mintlify klappt nur verschachtelte Groups ein (`expanded`), Top-Level-Groups sind immer voll sichtbar – wir haben uns bewusst für viele flache Groups statt weniger verschachtelter entschieden und verlassen uns auf Suche/KI-Chat (`contextual` in docs.json) statt auf eingeklappte Navigation.
   - **Ausnahme**: Eine verschachtelte Sub-Group ist okay, wenn mehrere Seiten einen in sich geschlossenen Themenblock bilden, der als Einheit ein-/ausklappbar sein soll (z. B. die 4 Baustein-Seiten "Blöcke" innerhalb von Flows). Im Zweifel flach lassen, nur auf ausdrücklichen Wunsch verschachteln.
   - Jede verschachtelte Sub-Group bekommt `"expanded": true`, damit sie standardmäßig aufgeklappt ist und die Hierarchie direkt sichtbar bleibt (Nutzer können sie zwar manuell einklappen, aber der Default zeigt die Struktur).
-- Zielbild: pro Produkt-Tab ca. 8–10 Groups mit je 5–10 Artikeln, angelehnt an die Kategorienbreite von intercom.help/perspective-funnels.
+- Zielbild: pro Produkt-Tab ca. 8–10 Groups mit je 5–10 Artikeln
 - Neue Feature-Artikel dürfen erstmal ohne docs.json-Eintrag entstehen, wenn der Ort noch unklar ist – Platzierung kann später nachgezogen werden.
 
 ## Artikel-Konventionen
