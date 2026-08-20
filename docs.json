@@ -199,7 +199,7 @@
             ]
           },
           {
-            "group": "Design",
+            "group": "Globales Design",
             "icon": "palette",
             "pages": [
               "convert/design/styleguide",
@@ -207,6 +207,14 @@
               "convert/design/typografie",
               "convert/design/element-einstellungen",
               "convert/design/layout"
+            ]
+          },
+          {
+            "group": "Block-Design",
+            "icon": "swatchbook",
+            "pages": [
+              "convert/design/block-farben",
+              "convert/design/block-layout-sichtbarkeit"
             ]
           }
         ]
