@@ -94,15 +94,7 @@
                   "convert/landing-page-editor/container"
                 ]
               },
-              {
-                "group": "Element-Konfiguration",
-                "expanded": true,
-                "pages": [
-                  "convert/landing-page-editor/button",
-                  "convert/landing-page-editor/icons",
-                  "convert/landing-page-editor/bilder"
-                ]
-              },
+              "convert/landing-page-editor/button",
               "convert/landing-page-editor/einstellungen",
               "convert/landing-page-editor/cookie-banner",
               "convert/landing-page-editor/variablen"
@@ -196,6 +188,14 @@
               "convert/funnel-editor/google-tag-manager",
               "convert/funnel-editor/consent-mode",
               "convert/funnel-editor/berechnete-felder"
+            ]
+          },
+          {
+            "group": "Medien & Icons",
+            "icon": "images",
+            "pages": [
+              "convert/medien/bilder",
+              "convert/medien/icons"
             ]
           },
           {
