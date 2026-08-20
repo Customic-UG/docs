@@ -1,0 +1,109 @@
+---
+title: Taxi
+description: Fahrtanfragen annehmen – mit getrennten Strecken für Stadtfahrt, Flughafentransfer und Sonderanfragen.
+---
+
+## Überblick
+
+Die Vorlage **Taxi** nimmt Fahrtanfragen entgegen. Direkt im ersten Step wählt der Nutzer die Art der Fahrt – und läuft danach nur noch durch die Fragen, die für diese Fahrt relevant sind. Eine Stadtfahrt braucht Start, Ziel und Zeit; ein Flughafentransfer zusätzlich die Richtung und – bei Ankunft – die Flugnummer; eine Sonderanfrage nur ein Freitextfeld.
+
+Der Funnel besteht aus **11 Steps** und endet mit einer Danke-Seite inklusive Rückruf-Button.
+
+{/* Screenshot: Startansicht der Taxi-Vorlage mit den sechs Auswahlkacheln */}
+
+<Frame>
+  <img src="/images/convert/funnels/vorlagen/taxi/start.png" />
+</Frame>
+
+---
+
+## Für wen geeignet
+
+- Taxi- und Mietwagenbetriebe, die Anfragen über die Website statt nur per Telefon annehmen möchten
+- Fahrdienste mit mehreren Angeboten (Stadtfahrt, Transfer, Krankenfahrt, Geschäftskunden)
+- Alle Anbieter, bei denen sich die abzufragenden Daten je nach Auftragsart unterscheiden
+
+---
+
+## Aufbau der Vorlage
+
+| # | Step | Inhalt |
+| --- | --- | --- |
+| 1 | Was | Auswahl der Fahrtart (6 Optionen) |
+| 2 | T-Wo | Abhol- und Zieladresse |
+| 3 | T-Wann | Abholdatum und Uhrzeit |
+| 4 | Optionen | Personenanzahl und Extras |
+| 5 | Kontakt | Name, Telefonnummer, E-Mail |
+| 6 | Flug | Richtung des Transfers |
+| 7 | F-toFlug | Abholadresse und Zielflughafen |
+| 8 | F-fromFlug | Abholflughafen, Flugnummer, Zieladresse |
+| 9 | F-Wann | Datum und Uhrzeit des Flugs |
+| 10 | Sonstiges Kontakt | Kontaktdaten und Freitext |
+| 11 | Danke | Bestätigung mit Anruf-Button |
+
+---
+
+## Die drei Strecken
+
+Der erste Step stellt die Weiche (Blockname `Auswahl`, sechs Kacheln mit Icon und Kurzbeschreibung):
+
+| Option | Beschreibung |
+| --- | --- |
+| TAXI / Stadtfahrt | Sofort oder vorbuchen |
+| Flughafentransfer | Festpreis & Flug-Tracking |
+| Krankenfahrten | Wir helfen gerne |
+| Geschäftskunden | Abrechnung & Flotte |
+| VIP / Limousine | Diskret & exklusiv |
+| Sonstiges | Individuelle Anfrage |
+
+Die Vorlage ist so angelegt, dass jede Option über die [Regeln](/convert/funnel-editor/conditions) des Blocks auf die passende Strecke führt: *TAXI / Stadtfahrt*, *Krankenfahrten*, *Geschäftskunden* und *VIP / Limousine* führen alle zur Strecke Stadtfahrt (Steps 2–5), *Flughafentransfer* zur gleichnamigen Strecke (Steps 6–9) und *Sonstiges* zum Freitextformular (Step 10). Welche Option auf welchen Step zeigt, sehen Sie im Tab **Regeln**.
+
+Jede Strecke durchläuft dabei mehrere Steps:
+
+- **Stadtfahrt** – T-Wo → T-Wann → Optionen → Kontakt
+- **Flughafentransfer** – Flug: Hier teilt sich die Strecke abhängig von der gewählten Richtung nochmal auf – *Zum Flughafen* führt zu F-toFlug, *Vom Flughafen* zu F-fromFlug – danach gemeinsam weiter über F-Wann sowie, wie bei der Stadtfahrt, Optionen und Kontakt
+- **Sonstiges** – ein einzelner Step mit Kontaktdaten und Freitextfeld
+
+---
+
+## Abschluss
+
+Alle drei Strecken laufen am Ende wieder zusammen: Nach den streckenspezifischen Fragen endet der Funnel mit der Danke-Seite – Bestätigung des Auftrags plus ein **Jetzt anrufen**-Button für Rückfragen.
+
+---
+
+## Vor der Veröffentlichung anpassen
+
+<AccordionGroup>
+  <Accordion title="Fahrtarten anpassen">
+    Wenn Sie eine Fahrtart nicht anbieten, löschen Sie die Kachel – die zugehörigen Steps können Sie ebenfalls entfernen. Umgekehrt legen Sie für eine zusätzliche Fahrtart eine neue Kachel an und verweisen sie im Tab **Regeln** auf einen neuen Step.
+  </Accordion>
+  <Accordion title="Telefonnummer auf der Danke-Seite ändern">
+    Die Danke-Seite enthält einen Button **Jetzt anrufen** und im Text eine Rufnummer. Beides ist ein Platzhalter aus der Vorlage – tragen Sie hier Ihre eigene Nummer ein.
+  </Accordion>
+  <Accordion title="Ortsbezug anpassen">
+    Mehrere Info-Texte nennen Karlsruhe als Beispielstadt. Ersetzen Sie den Ortsnamen durch Ihr Einsatzgebiet.
+  </Accordion>
+  <Accordion title="Extras erweitern">
+    Die Extras in Step „Optionen" sind eine Mehrfachauswahl. Weitere Optionen (z. B. Fahrradtransport) fügen Sie direkt im Block hinzu.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Werden Datum und Uhrzeit automatisch vorbelegt?">
+    Der Info-Text der Vorlage sagt das zu („bereits auf jetzt vorausgefüllt"), im Datums- und Zeitfeld selbst ist aber kein Standardwert hinterlegt. Setzen Sie die Vorbelegung im Block – oder passen Sie den Text an.
+  </Accordion>
+  <Accordion title="Kann ich die Flughafen-Strecke weglassen?">
+    Ja. Löschen Sie die Kachel *Flughafentransfer* im ersten Step sowie die Steps „Flug", „F-toFlug", „F-fromFlug" und „F-Wann".
+  </Accordion>
+  <Accordion title="Kann der Nutzer mehrere Extras gleichzeitig wählen?">
+    Ja, sowohl die Personenanzahl als auch die Extras sind als Mehrfachauswahl konfiguriert.
+  </Accordion>
+  <Accordion title="Ist die E-Mail-Adresse Pflicht?">
+    Nein. Pflicht sind Name und Telefonnummer; das E-Mail-Feld ist ausdrücklich als optional gekennzeichnet.
+  </Accordion>
+</AccordionGroup>
