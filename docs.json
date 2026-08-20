@@ -104,7 +104,24 @@
             "group": "Funnels",
             "icon": "filter",
             "pages": [
-              "convert/funnels/index"
+              "convert/funnels/index",
+              {
+                "group": "Vorlagen",
+                "expanded": true,
+                "pages": [
+                  "convert/funnels/vorlagen/index",
+                  "convert/funnels/vorlagen/baufinanzierung",
+                  "convert/funnels/vorlagen/solar",
+                  "convert/funnels/vorlagen/taxi",
+                  "convert/funnels/vorlagen/angebotsanfrage",
+                  "convert/funnels/vorlagen/produktberatung",
+                  "convert/funnels/vorlagen/terminbuchung",
+                  "convert/funnels/vorlagen/leadgenerierung",
+                  "convert/funnels/vorlagen/recruiting-it",
+                  "convert/funnels/vorlagen/recruiting-handwerk",
+                  "convert/funnels/vorlagen/nps"
+                ]
+              }
             ]
           },
           {
