@@ -1,0 +1,122 @@
+---
+title: Baufinanzierung
+description: Zinsvergleich anfragen – mit drei Bedarfsstrecken, Einkommens-Slider und Telefonverifizierung.
+---
+
+## Überblick
+
+**Baufinanzierung** ist die umfangreichste der Vorlagen: 12 Steps, drei verschiedene Bedarfsstrecken und ein Abschluss mit Telefonverifizierung und Bankpartner-Logos. Sie erfasst alles, was ein Finanzierungsberater für ein erstes Zinsangebot braucht – Vorhaben, Objekt, Nutzung, Suchstatus, Bedarf, Beschäftigung, Einkommen und Standort.
+
+{/* Screenshot: Startansicht der Baufinanzierung-Vorlage */}
+
+<Frame>
+  <img src="/images/convert/funnels/vorlagen/baufinanzierung/start.png" />
+</Frame>
+
+---
+
+## Für wen geeignet
+
+- Finanzierungsvermittler und Baufinanzierungsberater
+- Makler, die Finanzierungsanfragen an einen Partner weitergeben
+- Alle Anfragen, bei denen die abzufragenden Zahlen vom Vorhaben abhängen
+
+---
+
+## Aufbau der Vorlage
+
+| # | Step | Inhalt |
+| --- | --- | --- |
+| 1 | Vorhaben | Art des Finanzierungsvorhabens |
+| 2 | Immobilienart | Objekttyp |
+| 3 | Nutzung | Eigennutzung oder Kapitalanlage |
+| 4 | Suchstatus | Stand der Immobiliensuche |
+| 5 | Finanzierungsbedarf | Kaufpreis und Eigenkapital |
+| 6 | Finanzierungsbedarf (Umbau) | Immobilienwert und Darlehensbetrag |
+| 7 | Finanzierungsbedarf (Anschluss) | Wert, Auszahlungsdatum, Restschuld |
+| 8 | Beschäftigungsverhältnis | Berufliche Situation |
+| 9 | Einkommen | Monatliches Netto per Slider |
+| 10 | Standort (PLZ) | Postleitzahl |
+| 11 | Kontaktdaten | Vor- und Nachname, E-Mail, Telefon |
+| 12 | Erfolg | Bestätigung mit Telefonverifizierung |
+
+---
+
+## Die drei Bedarfsstrecken
+
+Der erste Step fragt nach dem Vorhaben (Blockname `Anfrage`):
+
+| Option (in der Reihenfolge der Vorlage) | Passender Bedarfs-Step |
+| --- | --- |
+| Kauf Bestandsimmobilie | Kaufpreis & Eigenkapital (`need`) |
+| Anschlussfinanzierung | Immobilienwert, Auszahlungsdatum & Restschuld (`need_follow_up`) |
+| Eigenes Bauvorhaben | Kaufpreis & Eigenkapital (`need`) |
+| Kauf Neubau | Kaufpreis & Eigenkapital (`need`) |
+| Umbau / Modernisierung | Immobilienwert & Darlehensbetrag (`need_renovation`) |
+
+Das ist der Kern der Vorlage: Ein Anschlussfinanzierer hat keinen Kaufpreis, ein Modernisierer kein Eigenkapital im klassischen Sinn. Über die [Regeln](/convert/funnel-editor/conditions) des ersten Blocks wird jeder Nutzer nur nach den Zahlen gefragt, die es in seinem Fall wirklich gibt. Welche Option auf welchen Bedarfs-Step zeigt, prüfen Sie nach dem Laden im Tab **Regeln**.
+
+<div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
+  <div>
+    <p><code>need</code></p>
+    <img src="/images/convert/funnels/vorlagen/baufinanzierung/finanzierungsbedarf.png" style={{maxWidth: '320px'}} />
+  </div>
+  <div>
+    <p><code>need_renovation</code></p>
+    <img src="/images/convert/funnels/vorlagen/baufinanzierung/finanzierungsbedarf-umbau.png" style={{maxWidth: '320px'}} />
+  </div>
+  <div>
+    <p><code>need_follow_up</code></p>
+    <img src="/images/convert/funnels/vorlagen/baufinanzierung/finanzierungsbedarf-anschlussfinanzierung.png" style={{maxWidth: '320px'}} />
+  </div>
+</div>
+
+Auch einzelne Zwischensteps werden übersprungen, wenn sie keinen Sinn ergeben – ebenfalls über die Regeln des jeweiligen Blocks gesteuert: Wählt der Nutzer bei Immobilienart **Nur Grundstück**, entfällt der Step Nutzung; wählt er bei Vorhaben **Anschlussfinanzierung**, entfällt der Step Suchstatus.
+
+---
+
+## Abschluss
+
+Alle drei Strecken laufen am Ende wieder zusammen: Nach Beschäftigung, Einkommen und Kontaktdaten schließt der Funnel mit einem **MFA-Block** zur Verifizierung der Telefonnummer per Code sowie einem **Logo-Grid** mit den geprüften Bankpartnern. Damit die Verifizierung funktioniert, muss die Multi-Faktor-Authentifizierung unter [Einstellungen → Sicherheit](/convert/funnel-editor/einstellungen) aktiviert sein.
+
+<Tip>
+  Die Telefonverifizierung an dieser Stelle ist der wirksamste Qualitätsfilter der Vorlage: Wer den Code eingibt, hat eine echte Nummer hinterlegt – ein spürbarer Unterschied bei Anfragen aus bezahlter Werbung.
+</Tip>
+
+---
+
+## Vor der Veröffentlichung anpassen
+
+<AccordionGroup>
+  <Accordion title="Styleguide anpassen">
+    Layout und Blöcke kommen aus der Vorlage, Farben und Schriften weiterhin aus Ihrem [Styleguide](/convert/design/styleguide). Falls Sie ein eigenes Branding verwenden möchten, passen Sie ihn entsprechend an.
+  </Accordion>
+  <Accordion title="Anzahl der Bankpartner angleichen">
+    Die Anzahl der Bankpartner wird in den Steps Vorhaben, Kontaktdaten und Erfolg genannt. Gleichen Sie sie auf die tatsächliche Anzahl Ihrer Partner an.
+  </Accordion>
+  <Accordion title="Bankpartner-Logos ersetzen">
+    Das Logo-Grid im Step Erfolg zeigt acht Logos aus der Vorlage. Verwenden Sie nur Logos von Partnern, mit denen Sie tatsächlich zusammenarbeiten.
+  </Accordion>
+  <Accordion title="Rückmeldefrist anpassen">
+    Die Erfolgsseite verspricht einen Anruf innerhalb von 12 Stunden. Passen Sie den Wert an Ihre tatsächliche Erreichbarkeit an.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Warum gibt es drei Steps für den Finanzierungsbedarf?">
+    Weil sich die relevanten Zahlen je Vorhaben unterscheiden. Jeder Nutzer soll nur einen dieser drei Steps sehen – gesteuert über die Regeln des ersten Steps.
+  </Accordion>
+  <Accordion title="Ist der Zinsvergleich im Funnel enthalten?">
+    Nein. Der Funnel sammelt die Angaben; den Vergleich führen Sie oder Ihr Partner danach durch. Die Erfolgsseite kommuniziert das entsprechend.
+  </Accordion>
+  <Accordion title="Wie sensibel sind die abgefragten Daten?">
+    Einkommen und Beschäftigungsverhältnis sind besonders schützenswert. Der Info-Text im Einkommens-Step weist ausdrücklich darauf hin, dass nur der persönliche Berater sie sieht – prüfen Sie, dass diese Aussage für Ihre Prozesse stimmt.
+  </Accordion>
+  <Accordion title="Kann ich die Vorlage kürzen?">
+    Ja, aber vorsichtig: Fehlt eine der Angaben, ist ein belastbares Zinsangebot kaum möglich. Kürzen Sie eher bei Suchstatus und Nutzung als bei Bedarf und Einkommen.
+  </Accordion>
+</AccordionGroup>
