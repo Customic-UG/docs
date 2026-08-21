@@ -1,11 +1,25 @@
 ---
 title: "Automatisierung"
-description: "Eigene Domain hinterlegen und verifizieren, um E-Mails versenden zu können."
+description: "Standard-E-Mail-Adresse von osiro nutzen oder eigene Domain hinterlegen und verifizieren."
 ---
 
 ## E-Mail
 
-Unter **Einstellungen → Automatisierung → E-Mail** hinterlegen Sie eine eigene Domain, über die Ihre Organisation E-Mails versenden kann, z. B. für [Vorlagen](/message/vorlagen/index).
+Unter **Einstellungen → Automatisierung → E-Mail** verwalten Sie die Absenderadressen, über die Ihre Organisation E-Mails versenden kann, z. B. für [Vorlagen](/message/vorlagen/index).
+
+<img src="/images/message/konfiguration/e-mail.png"/>
+
+### Standard-Adresse von osiro
+
+Jede Organisation erhält automatisch eine bereits verifizierte Adresse nach dem Muster `ihre-organisation@out.osiro.email` (Kennzeichnung **osiro-Standard**). Diese Adresse können Sie ohne weitere Einrichtung sofort nutzen.
+
+<Note>
+Die Domain `out.osiro.email` wird von mehreren osiro-Kunden gemeinsam genutzt. Die Zustellbarkeit ist dadurch nicht garantiert. Für Versand unter eigener Marke und mit voller Kontrolle über die Zustellbarkeit empfiehlt sich eine eigene Domain.
+</Note>
+
+### Eigene Domain hinzufügen
+
+Über **+ Hinzufügen** hinterlegen Sie stattdessen eine eigene Domain:
 
 <Steps>
   <Step title="Domain hinzufügen">
@@ -20,7 +34,7 @@ Unter **Einstellungen → Automatisierung → E-Mail** hinterlegen Sie eine eige
 </Steps>
 
 <Warning>
-Erst nach erfolgreicher Verifizierung können E-Mails versendet werden, z. B. über [Vorlagen](/message/vorlagen/index) im [Nachricht-Baustein](/message/flows/nachricht).
+Erst nach erfolgreicher Verifizierung können E-Mails über eine eigene Domain versendet werden, z. B. über [Vorlagen](/message/vorlagen/index) im [Nachricht-Baustein](/message/flows/nachricht).
 </Warning>
 
 ---
@@ -28,7 +42,10 @@ Erst nach erfolgreicher Verifizierung können E-Mails versendet werden, z. B. ü
 ## Häufige Fragen
 
 <AccordionGroup>
-  <Accordion title="Warum lässt sich meine Freemail-Adresse nicht als Versand-Domain verifizieren?">
+  <Accordion title="Muss ich eine eigene Domain hinterlegen, um E-Mails versenden zu können?">
+    Nein. Jede Organisation hat automatisch eine verifizierte Standard-Adresse (**osiro-Standard**) auf der Domain `out.osiro.email`, mit der sofort versendet werden kann. Eine eigene Domain ist optional und sinnvoll, wenn Sie unter Ihrer eigenen Marke versenden und die volle Kontrolle über die Zustellbarkeit haben möchten.
+  </Accordion>
+  <Accordion title="Warum lässt sich meine Freemail-Adresse nicht als eigene Versand-Domain verifizieren?">
     Für die Verifizierung müssen DNS-Einträge bei der Domain selbst gesetzt werden. Bei Freemail-Adressen gehört die Domain jedoch dem jeweiligen Anbieter – Sie haben dort keinen Zugriff auf die DNS-Verwaltung. Verwenden Sie stattdessen eine eigene Domain, deren DNS-Zone Sie selbst verwalten können.
   </Accordion>
 </AccordionGroup>
