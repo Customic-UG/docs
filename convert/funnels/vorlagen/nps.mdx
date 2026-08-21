@@ -1,0 +1,101 @@
+---
+title: NPS
+description: Weiterempfehlung messen – und positives Feedback direkt in eine Google-Bewertung lenken.
+---
+
+## Überblick
+
+Die Vorlage **NPS** stellt die klassische Weiterempfehlungsfrage auf einer Skala von 1 bis 10 und teilt den Ablauf danach in zwei Strecken: Zufriedene Kunden werden gebeten, ihre Erfahrung öffentlich zu teilen. Unzufriedene bekommen einen internen Kanal, in dem sie sagen können, was schiefgelaufen ist.
+
+Der Funnel besteht aus **8 Steps** und duzt durchgehend.
+
+{/* Screenshot: Startansicht der NPS-Vorlage mit der 1–10-Skala */}
+
+<img src="/images/convert/funnels/vorlagen/nps/start.png"/>
+
+---
+
+## Für wen geeignet
+
+- Dienstleister, die nach Auftragsabschluss um Feedback bitten
+- Betriebe, die aktiv Google-Bewertungen aufbauen möchten
+- Alle, die Kritik intern behandeln wollen, statt sie öffentlich zu riskieren
+
+---
+
+## Aufbau der Vorlage
+
+| # | Step | Strecke | Inhalt |
+| --- | --- | --- | --- |
+| 1 | START | beide | Skala 1–10 |
+| 2 | 1-Positiv | positiv | Was hat gefallen? (Tags) |
+| 3 | 1-Negativ | negativ | Was war nicht gut? (Tags) |
+| 4 | Loading | beide | Ladeanimation |
+| 5 | 2-Positiv | positiv | Bewertungstext und Google-Button |
+| 6 | 2-Negativ | negativ | Freitext-Feedback |
+| 7 | 3-Positiv | positiv | Danke-Seite |
+| 8 | 3-Negativ | negativ | Danke-Seite |
+
+---
+
+## Die zwei Strecken
+
+Der Step **START** stellt die Weiche: Der gewählte Skalenwert entscheidet über die [Regeln](/convert/funnel-editor/conditions) des Skala-Blocks, ob der Nutzer auf die positive oder die negative Strecke geht. Ab Step 2 sieht jeder Nutzer nur noch die Fragen seiner eigenen Strecke – ein gemeinsamer **Loading**-Step zwischen den beiden Fragen macht plausibel, dass der folgende Bewertungsvorschlag auf den eigenen Angaben beruht.
+
+- **Positive Strecke** – Tags zu dem, was gefallen hat, danach ein vorausgefüllter Bewertungstext mit Button **Bei Google bewerten**
+- **Negative Strecke** – Tags zu dem, was nicht gut war, danach ein Freitextfeld mit Button **Feedback senden**
+
+<div style={{display: 'flex', gap: '2rem', flexWrap: 'wrap'}}>
+  <div>
+    <p><strong>Positive Strecke</strong></p>
+    <img src="/images/convert/funnels/vorlagen/nps/1-positiv.png" style={{maxWidth: '320px'}} />
+    <img src="/images/convert/funnels/vorlagen/nps/2-positiv.png" style={{maxWidth: '320px'}} />
+  </div>
+  <div>
+    <p><strong>Negative Strecke</strong></p>
+    <img src="/images/convert/funnels/vorlagen/nps/1-negativ.png" style={{maxWidth: '320px'}} />
+    <img src="/images/convert/funnels/vorlagen/nps/2-negativ.png" style={{maxWidth: '320px'}} />
+  </div>
+</div>
+
+<Tip>
+  Prüfen Sie den im Skala-Block hinterlegten Schwellenwert nach dem Laden – er legt fest, ab welcher Bewertung ein Kunde aktiv um eine öffentliche Google-Bewertung gebeten wird.
+</Tip>
+
+---
+
+## Vor der Veröffentlichung anpassen
+
+<AccordionGroup>
+  <Accordion title="Google-Link hinterlegen">
+    Der Button **Bei Google bewerten** braucht die Bewertungs-URL Ihres Unternehmensprofils. Ohne sie endet die positive Strecke ohne Wirkung.
+  </Accordion>
+  <Accordion title="Schwellenwert festlegen">
+    Prüfen Sie in den Regeln des Skala-Blocks, ab welchem Wert die positive Strecke greift, und passen Sie ihn an Ihre Erwartungen an.
+  </Accordion>
+  <Accordion title="Voreinstellung der Skala prüfen">
+    Die Skala ist auf den Wert 4 vorbelegt. Wer ohne nachzudenken auf „Weiter" klickt, landet damit auf der negativen Strecke. Setzen Sie die Voreinstellung in die Mitte – oder entfernen Sie sie, damit eine bewusste Auswahl nötig ist.
+  </Accordion>
+  <Accordion title="Tags an Ihre Leistung anpassen">
+    Die Tag-Listen beider Strecken sind branchenneutral. Ersetzen Sie sie durch die Aspekte, die für Ihr Angebot wirklich unterscheidend sind – dann sind die Antworten auch auswertbar.
+  </Accordion>
+  <Accordion title="Ansprache auf Sie umstellen">
+    Die Vorlage duzt. Für gesiezte Kundenbeziehungen müssen alle Überschriften und Beschreibungen angepasst werden.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Werden negative Bewertungen unterdrückt?">
+    Nein. Die Vorlage bittet nur zufriedene Kunden aktiv um eine öffentliche Bewertung. Unzufriedene können jederzeit selbst eine Bewertung abgeben – sie werden lediglich nicht dazu aufgefordert.
+  </Accordion>
+  <Accordion title="Wird der Bewertungstext automatisch erzeugt?">
+    Die Vorlage kündigt einen Vorschlag an und stellt das Textfeld dafür bereit. Ob und wie der Text vorbelegt wird, konfigurieren Sie im Textarea-Block.
+  </Accordion>
+  <Accordion title="Wo sehe ich die Ergebnisse?">
+    In den [Analytics](/convert/funnel-editor/analytics) – dort finden Sie die Verteilung der Skalenwerte und der gewählten Tags.
+  </Accordion>
+</AccordionGroup>
