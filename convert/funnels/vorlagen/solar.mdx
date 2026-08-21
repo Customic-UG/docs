@@ -1,0 +1,84 @@
+---
+title: Solar
+description: Photovoltaik-Anfragen erfassen – mit Verfügbarkeitsprüfung per Postleitzahl.
+---
+
+## Überblick
+
+Die Vorlage **Solar** qualifiziert Interessenten für eine Photovoltaikanlage: Sie fragt Objekt, Dachform, Haushaltsgröße und Stromverbrauch ab, prüft anschließend die Verfügbarkeit am Standort und fordert erst danach Adresse und Kontaktdaten an.
+
+Der Funnel besteht aus **10 Steps** und ist als linearer Ablauf angelegt – alle Nutzer sehen dieselben Steps.
+
+{/* Screenshot: Startansicht der Solar-Vorlage */}
+
+<img src="/images/convert/funnels/vorlagen/solar/start.png"/>
+
+---
+
+## Für wen geeignet
+
+- Solarteure und PV-Installationsbetriebe
+- Energieberater, die Anfragen vorqualifizieren möchten
+- Anbieter mit regional begrenztem Einsatzgebiet – die Postleitzahl-Abfrage filtert vorab
+
+---
+
+## Aufbau der Vorlage
+
+| # | Step | Inhalt |
+| --- | --- | --- |
+| 1 | Start | Einstiegsfrage nach dem Vorhaben |
+| 2 | Objektart | Art der Immobilie |
+| 3 | Dachtyp | Dachform |
+| 4 | Haushaltsgröße | Anzahl der Personen |
+| 5 | Stromverbrauch | Jahresverbrauch in kWh |
+| 6 | Verfügbarkeit | Postleitzahl mit Prüf-Button |
+| 7 | Loading | Ladeanimation mit drei Stationen |
+| 8 | Adresse | Straße, Hausnummer, Wohnort |
+| 9 | Kontakt | Name, E-Mail, Telefonnummer |
+| 10 | Bestätigung | Danke-Seite |
+
+<img src="/images/convert/funnels/vorlagen/solar/stromverbrauch.png"/>
+
+<Tip>
+  Haushaltsgröße und Stromverbrauch ergeben zusammen eine erste Schätzung der benötigten Anlagengröße – auch wenn der Nutzer bei „Unsicher" landet.
+</Tip>
+
+---
+
+## Verfügbarkeitsprüfung
+
+Der Step **Verfügbarkeit** fragt die Postleitzahl ab – Pflichtfeld, über [Validierung](/convert/funnel-editor/validierung) auf fünf Ziffern geprüft. Danach folgt ein **Loading**-Step mit drei Stationen (Standort, Dachfläche, Förderungen), der die Wartezeit überbrückt und das anschließende „Verfügbar"-Ergebnis als individuelle Prüfung rahmt.
+
+<Note>
+  Der Loading-Block führt keine echte Prüfung durch – er ist reine Inszenierung. Erst danach werden Adresse und Kontaktdaten erfasst.
+</Note>
+
+---
+
+## Vor der Veröffentlichung anpassen
+
+<AccordionGroup>
+  <Accordion title="Verfügbarkeit wirklich prüfen">
+    Wenn Sie nur bestimmte Postleitzahlengebiete bedienen, hinterlegen Sie im Tab **Regeln** eine Bedingung auf die Postleitzahl und leiten Nutzer außerhalb Ihres Gebiets auf einen eigenen Step um.
+  </Accordion>
+  <Accordion title="Bild austauschen">
+    Auf mehreren Steps liegt unter der Trennlinie dasselbe Bild – in der Vorlage ein Platzhalter. Ersetzen Sie es durch Ihr Logo oder eine Referenzaufnahme oder entfernen Sie den Block.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Warum kommt die Adresse erst so spät?">
+    Die Vorlage folgt dem Prinzip, zuerst die leichten Fragen zu stellen. Wer bereits fünf Klicks investiert hat, gibt seine Adresse deutlich häufiger an, als wenn sie am Anfang steht.
+  </Accordion>
+  <Accordion title="Kann ich die Ladeanimation entfernen?">
+    Ja, der Loading-Step lässt sich löschen. Der Übergang von der Postleitzahl zur Bestätigung wirkt dann allerdings weniger wie ein Prüfergebnis.
+  </Accordion>
+  <Accordion title="Gibt es eine Verzweigung in dieser Vorlage?">
+    Die Vorlage ist als linearer Ablauf angelegt. Verzweigungen können Sie über die [Regeln](/convert/funnel-editor/conditions) jederzeit ergänzen.
+  </Accordion>
+</AccordionGroup>
