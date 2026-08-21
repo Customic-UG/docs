@@ -1,0 +1,58 @@
+---
+title: "Lead-Export"
+description: "Leads als CSV-Datei herunterladen – einzeln ausgewählt oder gefiltert."
+---
+
+## Überblick
+
+Im Kontrollzentrum lassen sich Leads jederzeit als CSV-Datei herunterladen, z. B. für eine Weiterverarbeitung außerhalb von Hunter oder als Backup.
+
+<img src="/images/hunter/lead-management/lead-export/alle.png"/>
+
+<Note>
+Ohne Auswahl exportiert der Download-Button alle Leads, die der aktuellen Filterung/Suche entsprechen – nicht ausnahmslos alle Leads im System.
+</Note>
+
+---
+
+## Export starten
+
+<Steps>
+  <Step title="Filtern (optional)">
+    Schränken Sie die Liste über **Suche** oder **Filter** ein, wenn nur ein Teil der Leads exportiert werden soll.
+  </Step>
+  <Step title="Leads auswählen (optional)">
+    Setzen Sie Häkchen bei einzelnen Leads, um nur diese zu exportieren. Der Export-Button wechselt dabei zu **Exportieren** mit der Anzahl der ausgewählten Leads.
+
+    <img src="/images/hunter/lead-management/lead-export/auswahl.png"/>
+  </Step>
+  <Step title="Herunterladen">
+    Klicken Sie auf den Download-Button. Die CSV-Datei wird direkt heruntergeladen.
+  </Step>
+</Steps>
+
+---
+
+## Was ist in der CSV enthalten?
+
+Die exportierte Datei enthält alle Lead-Felder – sowohl die Standardfelder (Kontaktdaten, Status, Tags) als auch individuell angelegte Felder.
+
+<Warning>
+Der Status **Exportiert** in der Lead-Übersicht (siehe [Lead-Status](/hunter/konfiguration/status)) hat nichts mit dieser CSV-Export-Funktion zu tun – er zeigt an, dass ein Lead erfolgreich abgeschlossen wurde, nicht dass eine Datei heruntergeladen wurde.
+</Warning>
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Werden auch Leads exportiert, die durch einen Filter ausgeblendet sind?">
+    Nein. Ohne ausgewählte Leads exportiert der Button genau die Leads, die die aktuelle Suche/Filterung anzeigt – ausgeblendete Leads sind nicht enthalten.
+  </Accordion>
+  <Accordion title="Kann ich nur einzelne Spalten exportieren?">
+    Nein, der Export enthält immer alle Lead-Felder.
+  </Accordion>
+  <Accordion title="Löst der Export automatisch den Webhook lead.exported aus?">
+    Nein. Dieser Webhook bezieht sich auf den Lead-Status „Exportiert" (siehe [Lead-Status](/hunter/konfiguration/status)), nicht auf den CSV-Download.
+  </Accordion>
+</AccordionGroup>
