@@ -309,6 +309,7 @@
             "group": "Lead Management",
             "icon": "calendar",
             "pages": [
+              "hunter/lead-management/grundlagen",
               "hunter/lead-management/overview",
               "hunter/lead-management/overview-state-view",
               "hunter/lead-management/lead-import",
