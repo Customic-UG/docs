@@ -44,8 +44,16 @@
             "pages": [
               "portal/settings/index",
               "portal/settings/language",
+              "portal/account/passwort",
               "portal/account/passkeys",
               "mcp-docs"
+            ]
+          },
+          {
+            "group": "Hilfe & Support",
+            "icon": "life-ring",
+            "pages": [
+              "portal/support/index"
             ]
           }
         ]
