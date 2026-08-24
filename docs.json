@@ -302,7 +302,8 @@
             "group": "Überblick",
             "icon": "compass",
             "pages": [
-              "hunter/essentials/index"
+              "hunter/essentials/index",
+              "hunter/essentials/abgrenzung"
             ]
           },
           {
