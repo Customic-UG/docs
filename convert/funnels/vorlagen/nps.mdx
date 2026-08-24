@@ -38,10 +38,10 @@ Der Funnel besteht aus **8 Steps** und duzt durchgehend.
 
 ## Die zwei Strecken
 
-Der Step **START** stellt die Weiche: Der gewählte Skalenwert entscheidet über die [Regeln](/convert/funnel-editor/conditions) des Skala-Blocks, ob der Nutzer auf die positive oder die negative Strecke geht. Ab Step 2 sieht jeder Nutzer nur noch die Fragen seiner eigenen Strecke – ein gemeinsamer **Loading**-Step zwischen den beiden Fragen macht plausibel, dass der folgende Bewertungsvorschlag auf den eigenen Angaben beruht.
+Der Step **START** stellt die Weiche: Der gewählte Skalenwert entscheidet über die [Regeln](/convert/funnel-editor/conditions) des [Skala-Blocks](/convert/funnel-editor/blocks/choices/scale), ob der Nutzer auf die positive oder die negative Strecke geht. Ab Step 2 sieht jeder Nutzer nur noch die Fragen seiner eigenen Strecke – ein gemeinsamer **[Loading](/convert/funnel-editor/blocks/feedback/loading)**-Step zwischen den beiden Fragen macht plausibel, dass der folgende Bewertungsvorschlag auf den eigenen Angaben beruht.
 
-- **Positive Strecke** – Tags zu dem, was gefallen hat, danach ein vorausgefüllter Bewertungstext mit Button **Bei Google bewerten**
-- **Negative Strecke** – Tags zu dem, was nicht gut war, danach ein Freitextfeld mit Button **Feedback senden**
+- **Positive Strecke** – [Tags](/convert/funnel-editor/blocks/choices/tags) zu dem, was gefallen hat, danach ein vorausgefüllter Bewertungstext mit Button **Bei Google bewerten**
+- **Negative Strecke** – [Tags](/convert/funnel-editor/blocks/choices/tags) zu dem, was nicht gut war, danach ein Freitextfeld mit Button **Feedback senden**
 
 <div style={{display: 'flex', gap: '2rem', flexWrap: 'wrap'}}>
   <div>
@@ -94,7 +94,7 @@ Der Step **START** stellt die Weiche: Der gewählte Skalenwert entscheidet über
     Nein. Die Vorlage bittet nur zufriedene Kunden aktiv um eine öffentliche Bewertung. Unzufriedene können jederzeit selbst eine Bewertung abgeben – sie werden lediglich nicht dazu aufgefordert.
   </Accordion>
   <Accordion title="Wird der Bewertungstext automatisch erzeugt?">
-    Die Vorlage kündigt einen Vorschlag an und stellt das Textfeld dafür bereit. Ob und wie der Text vorbelegt wird, konfigurieren Sie im Textarea-Block.
+    Die Vorlage kündigt einen Vorschlag an und stellt das Textfeld dafür bereit. Ob und wie der Text vorbelegt wird, konfigurieren Sie im [Textarea-Block](/convert/funnel-editor/blocks/inputs/textarea).
   </Accordion>
   <Accordion title="Wo sehe ich die Ergebnisse?">
     In den [Analytics](/convert/funnel-editor/analytics) – dort finden Sie die Verteilung der Skalenwerte und der gewählten Tags.
