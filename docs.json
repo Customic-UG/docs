@@ -46,7 +46,7 @@
               "portal/settings/language",
               "portal/account/passwort",
               "portal/account/passkeys",
-              "mcp-docs"
+              "portal/settings/mcp"
             ]
           },
           {
