@@ -1,0 +1,57 @@
+---
+title: "Lead manuell erstellen"
+description: "Einen einzelnen Lead direkt im Kontrollzentrum anlegen – mit Werten aus einem bestehenden Funnel oder frei definierten Feldern."
+---
+
+## Überblick
+
+Neben dem [Funnel](/convert/funnels/index) und dem [Lead-Import](/hunter/lead-management/lead-import) lässt sich ein einzelner Lead auch direkt im Kontrollzentrum anlegen – z. B. für einen telefonisch eingegangenen Kontakt oder einen Test-Lead. Der Button **Lead erstellen** findet sich dort oben rechts neben **Import Lead**.
+
+<img src="/images/hunter/lead-management/lead-erstellen/button.png"/>
+
+---
+
+## Lead erstellen
+
+<Steps>
+  <Step title="Basisdaten eingeben">
+    Geben Sie Vorname, Nachname, E-Mail, Telefon und Postleitzahl ein. Optional lässt sich zusätzlich eine Notiz hinterlegen.
+
+    <img src="/images/hunter/lead-management/lead-erstellen/step1.png"/>
+  </Step>
+
+  <Step title="Zusatzfelder wählen">
+    Unter **Lead-Typ** legen Sie fest, welche zusätzlichen Felder der Lead bekommt:
+
+    - **Ein bestehender Funnel** (z. B. „Baufinanzierung") – übernimmt dessen Anfragefelder als Dropdowns, z. B. Anfragetyp, Immobilientyp, Nutzung und Status. Zur Auswahl stehen die Funnels, die in einer Landing Page eingebettet sind.
+    - **Custom** – Sie legen eigene Feldnamen mit passendem Wert über **Feld hinzufügen** an.
+
+    Dieser Schritt lässt sich über **Überspringen** auch komplett auslassen.
+
+    <img src="/images/hunter/lead-management/lead-erstellen/step2-funnel.png"/>
+
+    <img src="/images/hunter/lead-management/lead-erstellen/step2-custom.png"/>
+  </Step>
+
+  <Step title="Prüfen & abschicken">
+    Kontrollieren Sie die Basisdaten und die Zusatzfelder und klicken Sie auf **Abschicken**, um den Lead anzulegen.
+
+    <img src="/images/hunter/lead-management/lead-erstellen/step3.png"/>
+  </Step>
+</Steps>
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Muss ich alle Felder ausfüllen?">
+    Nein. Nur die Basisdaten im ersten Schritt sind vorgesehen, die Zusatzfelder im zweiten Schritt lassen sich über **Überspringen** komplett auslassen.
+  </Accordion>
+  <Accordion title="Was ist der Unterschied zwischen den beiden Lead-Typen?">
+    Wählen Sie einen bestehenden Funnel, erhalten Sie dieselben Anfragefelder wie in dessen Formular – praktisch, wenn der Lead inhaltlich zu einem bestehenden Funnel passt. Mit **Custom** definieren Sie stattdessen frei eigene Feldnamen und Werte.
+  </Accordion>
+  <Accordion title="Welchen Status hat ein manuell erstellter Lead?">
+    Wird beim Funnel-Typ kein Status ausgewählt, startet der Lead wie jeder neue Lead im Status **Nicht angerufen**, siehe [Lead-Status](/hunter/konfiguration/status).
+  </Accordion>
+</AccordionGroup>
