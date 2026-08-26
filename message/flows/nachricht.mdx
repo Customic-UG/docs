@@ -20,6 +20,7 @@ Wählen Sie hier die zu versendende [Vorlage](/message/vorlagen/index) aus.
 ## Konfig
 
 - **Kanal**: E-Mail oder WhatsApp
+- **Absender** (nur Kanal E-Mail): der Absender, über den dieser Schritt verschickt wird
 - **Zusätzliche Bedingungen**:
   - **Metrik**: z. B. Anrufe heute / Anrufe gesamt, mit Operatoren wie gleich, ungleich, größer, kleiner
   - **Zeitfenster**: von ... Uhr bis ... Uhr
@@ -27,6 +28,12 @@ Wählen Sie hier die zu versendende [Vorlage](/message/vorlagen/index) aus.
 <Note>
 Für den Kanal **E-Mail** steht automatisch eine verifizierte osiro-Standard-Adresse zur Verfügung. Für den Versand unter eigener Marke können Sie zusätzlich eine eigene Domain hinterlegen und verifizieren, siehe [Automatisierung](/message/konfiguration/automatisierung).
 </Note>
+
+### Absender je Schritt
+
+Standardmäßig ist **Standard-Absender der Organisation** ausgewählt: der Schritt nutzt automatisch die osiro-Standard-Adresse oder – falls hinterlegt – Ihre eigene verifizierte Domain, genau wie bisher. Über das Feld **Absender** können Sie einem Schritt stattdessen gezielt einen bestimmten verifizierten Absender zuweisen, etwa um innerhalb eines Flows unter verschiedenen Marken zu versenden.
+
+Wurde ein zugewiesener Absender inzwischen entfernt oder ist nicht mehr verifiziert, greift der Schritt automatisch wieder auf den Standard-Absender der Organisation zurück – der Versand wird dadurch nicht blockiert.
 
 ---
 
