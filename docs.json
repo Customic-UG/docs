@@ -211,6 +211,7 @@
               "convert/funnel-editor/analytics",
               "convert/funnel-editor/einstellungen",
               "convert/funnel-editor/google-tag-manager",
+              "convert/funnel-editor/linkedin-insight-tag",
               "convert/funnel-editor/consent-mode",
               "convert/funnel-editor/berechnete-felder"
             ]

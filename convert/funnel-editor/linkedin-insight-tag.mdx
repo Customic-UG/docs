@@ -1,0 +1,34 @@
+---
+title: LinkedIn Insight Tag einrichten
+description: Conversions und Retargeting-Zielgruppen für LinkedIn-Anzeigen aus Ihrem Funnel heraus tracken.
+---
+
+## Überblick
+
+Verbinden Sie das LinkedIn Insight Tag unter **Funnel Editor → Einstellungen → Integrationen → Tracking → LinkedIn Insight Tag** über „Verbinden" mit Ihrer **Partner ID** aus dem LinkedIn Campaign Manager (optional zusätzlich mit einer **Conversion ID**).
+
+<Tip>
+Damit das Insight Tag erst nach Zustimmung im Cookie-Banner feuert, siehe [Tracking mit Consent Mode absichern](/convert/funnel-editor/consent-mode).
+</Tip>
+
+---
+
+## Partner ID & Conversion ID
+
+- **Partner ID** – erforderlich; identifiziert Ihr Insight Tag im Campaign Manager. Nur numerisch, z. B. `1234567`.
+- **Conversion ID** – optional; die numerische ID einer im Campaign Manager angelegten Conversion. Ist sie hinterlegt, meldet osiro jede erfolgreiche Funnel-Übermittlung als diese Conversion. Ohne Conversion ID zeichnet das Tag weiterhin Seitenaufrufe und Retargeting-Zielgruppen auf – es fehlt lediglich die Conversion-Meldung.
+
+Beide Felder akzeptieren nur Ziffern; eine falsch eingegebene ID wird beim Speichern abgelehnt, damit kein Tag geladen wird, das ins Leere meldet.
+
+---
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Muss ich eine Conversion ID hinterlegen?">
+    Nein. Ohne Conversion ID zeichnet das Insight Tag weiterhin Seitenaufrufe und Retargeting-Zielgruppen auf – nur die Meldung einer Conversion bei erfolgreicher Funnel-Übermittlung entfällt dann.
+  </Accordion>
+  <Accordion title="Feuert das Insight Tag auch ohne Zustimmung im Cookie-Banner?">
+    Ist der osiro Cookie-Banner aktiv, feuert das Insight Tag nur nach Zustimmung zur Kategorie Werbung – genau wie das Meta-Pixel. Details dazu unter [Tracking mit Consent Mode absichern](/convert/funnel-editor/consent-mode).
+  </Accordion>
+</AccordionGroup>
