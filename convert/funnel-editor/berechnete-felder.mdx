@@ -33,3 +33,13 @@ Ein B2B-Funnel für eine Filialkette fragt das geplante Kampagnenbudget ab (z. B
     - **Formel** – die Berechnung selbst; über "Variable einfügen" lassen sich die internen Namen der Funnel-Felder als Platzhalter einfügen (z. B. `{budget}`) und miteinander verrechnen, z. B. `{budget} / {standorte}`
   </Step>
 </Steps>
+
+<Warning>
+Eine Formel darf sich nur auf Felder aus dem Funnel beziehen, nicht auf ein anderes berechnetes Feld – ein solcher Bezug wird beim Speichern abgelehnt. Benötigen Sie das Ergebnis eines berechneten Feldes in einer weiteren Berechnung, bilden Sie die vollständige Formel stattdessen in einem einzigen berechneten Feld ab.
+</Warning>
+
+---
+
+## Berechnete Felder verwenden
+
+Der berechnete Wert erscheint in der Detailansicht eines Leads wie jedes andere Feld und lässt sich ebenso als Variable in [Nachrichten-Vorlagen](/message/vorlagen/einstellungen) einfügen, sobald der zugehörige Funnel dort ausgewählt ist. Fehlt eine der Antworten, aus denen sich das Feld berechnet, wird sie als `0` behandelt; führt die Formel zu einer Division durch 0, bleibt das Feld leer statt einen Fehlerwert anzuzeigen.
