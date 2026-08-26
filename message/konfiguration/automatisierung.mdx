@@ -5,13 +5,15 @@ description: "Standard-E-Mail-Adresse von osiro nutzen oder eigene Domain hinter
 
 ## E-Mail
 
-Unter **Einstellungen → Automatisierung → E-Mail** verwalten Sie die Absenderadressen, über die Ihre Organisation E-Mails versenden kann, z. B. für [Vorlagen](/message/vorlagen/index).
+Die Absenderadressen, über die Ihre Organisation E-Mails versenden kann (z. B. für [Vorlagen](/message/vorlagen/index)), verwalten Sie unter **Einstellungen → Organisation → Domains** – gemeinsam mit den Domains, die Sie für Landing Pages nutzen. Über die Filter-Reiter **Alle / E-Mail / Landing Page / Beides** lässt sich die Tabelle auf eine Nutzungsart eingrenzen.
 
 <img src="/images/message/konfiguration/e-mail.png"/>
 
+Zu jedem E-Mail-Absender zeigt die Tabelle zusätzlich die hinterlegte Reply-To-Adresse sowie die Flows, die diesen Absender aktuell im [Nachricht-Baustein](/message/flows/nachricht) verwenden.
+
 ### Standard-Adresse von osiro
 
-Jede Organisation erhält automatisch eine bereits verifizierte Adresse nach dem Muster `ihre-organisation@out.osiro.email` (Kennzeichnung **osiro-Standard**). Diese Adresse können Sie ohne weitere Einrichtung sofort nutzen.
+Jede Organisation erhält automatisch eine bereits verifizierte Adresse nach dem Muster `ihre-organisation@out.osiro.email` (Kennzeichnung **osiro-Standard**). Diese Adresse können Sie ohne weitere Einrichtung sofort nutzen und ist in der Domains-Tabelle als nicht entfernbar markiert.
 
 <Note>
 Die Domain `out.osiro.email` wird von mehreren osiro-Kunden gemeinsam genutzt. Die Zustellbarkeit ist dadurch nicht garantiert. Für Versand unter eigener Marke und mit voller Kontrolle über die Zustellbarkeit empfiehlt sich eine eigene Domain.
@@ -19,17 +21,20 @@ Die Domain `out.osiro.email` wird von mehreren osiro-Kunden gemeinsam genutzt. D
 
 ### Eigene Domain hinzufügen
 
-Über **+ Hinzufügen** hinterlegen Sie stattdessen eine eigene Domain:
+Eine eigene Domain hinterlegen Sie in zwei Schritten: zuerst die Domain selbst anlegen und verifizieren, danach separat als E-Mail-Absender aktivieren.
 
 <Steps>
   <Step title="Domain hinzufügen">
-    Tragen Sie Ihre eigene Domain ein. Freemail-Adressen wie gmail.com oder gmx.de funktionieren nicht, da Sie dort keinen Zugriff auf die DNS-Einstellungen haben.
+    Über **+ Hinzufügen** tragen Sie Ihre eigene Domain ein. Freemail-Adressen wie gmail.com oder gmx.de funktionieren nicht, da Sie dort keinen Zugriff auf die DNS-Einstellungen haben.
   </Step>
   <Step title="DNS-Einträge setzen">
     Fügen Sie die angezeigten CNAME-Einträge bei Ihrem Domain-Anbieter hinzu (z. B. Namecheap, Cloudflare, IONOS).
   </Step>
   <Step title="Verifizieren">
     Klicken Sie auf **Erneut verifizieren**, sobald die DNS-Einträge gesetzt sind. Je nach Anbieter kann die Aktualisierung der DNS-Einträge einige Zeit in Anspruch nehmen.
+  </Step>
+  <Step title="Als E-Mail-Absender nutzen">
+    Aktivieren Sie die verifizierte Domain über „Als E-Mail-Absender nutzen", um sie für den Versand freizugeben.
   </Step>
 </Steps>
 
@@ -47,5 +52,8 @@ Erst nach erfolgreicher Verifizierung können E-Mails über eine eigene Domain v
   </Accordion>
   <Accordion title="Warum lässt sich meine Freemail-Adresse nicht als eigene Versand-Domain verifizieren?">
     Für die Verifizierung müssen DNS-Einträge bei der Domain selbst gesetzt werden. Bei Freemail-Adressen gehört die Domain jedoch dem jeweiligen Anbieter – Sie haben dort keinen Zugriff auf die DNS-Verwaltung. Verwenden Sie stattdessen eine eigene Domain, deren DNS-Zone Sie selbst verwalten können.
+  </Accordion>
+  <Accordion title="Wo finde ich die Absenderverwaltung, wenn ich sie vorher unter Automatisierung → E-Mail gesucht habe?">
+    Die Absenderverwaltung ist umgezogen nach **Einstellungen → Organisation → Domains**, gemeinsam mit den Landing-Page-Domains. Ein alter Link auf die vorherige Stelle leitet automatisch dorthin weiter.
   </Accordion>
 </AccordionGroup>
