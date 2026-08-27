@@ -31,5 +31,9 @@ Ein B2B-Funnel für eine Filialkette fragt das geplante Kampagnenbudget ab (z. B
     - **Name** – Name des berechneten Feldes
     - **Ergebnistyp** – Datentyp des Ergebnisses (z. B. Zahl)
     - **Formel** – die Berechnung selbst; über "Variable einfügen" lassen sich die internen Namen der Funnel-Felder als Platzhalter einfügen (z. B. `{budget}`) und miteinander verrechnen, z. B. `{budget} / {standorte}`
+
+    <Note>Eine Formel darf kein anderes berechnetes Feld referenzieren – nur direkte Funnel-Felder sind als Variable zulässig.</Note>
   </Step>
 </Steps>
+
+<Tip>Der Wert eines berechneten Feldes wird bei jeder Anzeige im Hunter-Dashboard neu aus den aktuellen Antworten des Leads ermittelt – nicht aus einem einmalig gespeicherten Wert.</Tip>
