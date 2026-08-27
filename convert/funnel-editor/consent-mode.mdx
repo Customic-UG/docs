@@ -30,7 +30,7 @@ Das betrifft nicht nur die Consent-Mode-Signale, sondern auch die [Funnel-Events
 </Note>
 
 <Warning>
-Der Consent Mode wird nur auf Seiten gesendet, auf denen der osiro Cookie-Banner die Consent-Hoheit besitzt. Ist ein Funnel auf einer fremden Seite eingebettet, deklariert osiro dort keinen Consent – das dort eingesetzte CMP bleibt zuständig.
+Der Consent Mode wird nur auf Seiten gesendet, auf denen der osiro Cookie-Banner die Consent-Hoheit besitzt. Ist ein Funnel auf einer fremden Seite eingebettet, deklariert osiro dort keinen Consent – das dort eingesetzte CMP bleibt zuständig. Läuft auf der einbettenden Seite Usercentrics, erkennt osiro das automatisch und liest dessen Consent-Entscheidung für die eigenen Events aus, statt sie standardmäßig zu erlauben.
 </Warning>
 
 ---
