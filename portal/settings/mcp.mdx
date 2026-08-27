@@ -3,13 +3,17 @@ title: "MCP Server"
 description: "osiro mit Claude oder einem beliebigen KI-Assistenten verbinden, um Ihre Funnels und E-Mail-Flows in natürlicher Sprache zu erstellen, gestalten, analysieren und automatisieren."
 ---
 
-Der **osiro MCP-Server** lässt Sie osiro direkt aus Claude oder einem beliebigen MCP-fähigen KI-Assistenten heraus steuern. Einmal verbunden, können Sie Ihren Assistenten bitten, einen Funnel zu erstellen, ihn neu zu gestalten, sich in dessen Analysen einzuarbeiten oder einen E-Mail-Flow zu entwerfen und zu starten – alles in natürlicher Sprache, ohne den Chat zu verlassen.
+Der **osiro MCP-Server** lässt Sie osiro direkt aus Claude oder einem beliebigen MCP-fähigen KI-Assistenten heraus steuern. Einmal verbunden, können Sie Ihren Assistenten bitten, einen Funnel oder eine Landing Page zu erstellen, das Design anzupassen, sich in Analysen einzuarbeiten oder einen E-Mail-Flow zu entwerfen und zu starten – alles in natürlicher Sprache, ohne den Chat zu verlassen.
 
 Der Assistent handelt dabei immer mit **Ihren eigenen Zugriffsrechten**: Er sieht ausschließlich die Funnels, Vorlagen und Analysen der Organisationen, zu denen Ihr osiro-Account gehört.
 
 <CardGroup cols={2}>
   <Card title="Funnels erstellen" icon="filter">
     Mehrstufige Lead-Funnels erstellen, Steps und Felder hinzufügen bzw. neu anordnen und Verzweigungslogik einrichten.
+  </Card>
+
+  <Card title="Landing Pages erstellen" icon="display">
+    Landing Pages aus Blöcken aufbauen, bearbeiten, umsortieren, Design und SEO-Einstellungen anpassen und veröffentlichen.
   </Card>
 
   <Card title="Design anpassen" icon="palette">
@@ -61,6 +65,12 @@ Der Assistent handelt dabei immer mit **Ihren eigenen Zugriffsrechten**: Er sieh
     - „Füge Step 2 meines Funnels ‚Demo-Buchung' ein Telefonnummer-Feld hinzu."
     - „Verzweige zu einem anderen Step, wenn jemand ‚Enterprise' auswählt."
   </Tab>
+  <Tab title="Landing Pages">
+    - „Erstelle eine Landing Page mit Hero, USP-Bar, FAQ und Footer für unser neues Angebot."
+    - „Füge einen Trust-Block nach dem Hero ein und verschiebe die FAQ ans Ende."
+    - „Setze den Meta-Titel und die Seitenbeschreibung für SEO."
+    - „Veröffentliche die Landing Page."
+  </Tab>
   <Tab title="Design">
     - „Zeig mir das aktuelle Design meines Haupt-Funnels."
     - „Setze die Primärfarbe auf #2DBD78 und verwende Inter für Überschriften."
@@ -80,6 +90,18 @@ Der Assistent handelt dabei immer mit **Ihren eigenen Zugriffsrechten**: Er sieh
 Ein Funnel besteht aus mehreren **Steps**. Jeder Step enthält **Blöcke** – Überschriften, Text, Eingabefelder, Buttons, Auswahlmöglichkeiten und mehr. Der Assistent kann einen Funnel erstellen, Steps und Blöcke hinzufügen oder neu anordnen, Felder gruppieren und festlegen, was nach jedem Step passiert (automatisch weiter, zu einem anderen Step verzweigen, absenden oder weiterleiten).
 
 Einfache Funnels funktionieren ganz ohne zusätzliche Einrichtung – eine Single-Choice-Frage führt automatisch weiter, ein Button sendet ab oder springt zum nächsten Step. Eigene Logik müssen Sie nur beschreiben, wenn Sie verzweigen möchten. → [Funnel Editor](/convert/funnel-editor/funnel-editor)
+
+### Landing Pages
+
+Eine Landing Page besteht aus **Blöcken** (z. B. Hero, CTA, FAQ, Footer). Der Assistent kann eine Landing Page anlegen, Blöcke hinzufügen, bearbeiten, entfernen oder umsortieren sowie den Namen, die SEO-Einstellungen (Meta-Titel, Seitenbeschreibung, Indexierung) und URL-Variablen für Personalisierung anpassen. → [Landing Page Editor](/convert/landing-page-editor/grundlagen)
+
+<Note>
+  Design-Anpassungen (Farben, Schriftarten, Eckenradius, Oberflächenfarben) laufen über denselben [Styleguide](/convert/design/styleguide) wie bei Funnels.
+</Note>
+
+<Warning>
+  Anders als bei Funnels kann der Assistent eine Landing Page auf Ihre Bitte hin auch direkt **veröffentlichen** – nicht nur den Entwurf bearbeiten. Einen Vorschau-Link kann er ebenfalls jederzeit erzeugen, um Änderungen vorab zu prüfen.
+</Warning>
 
 ### Analysen
 
