@@ -25,6 +25,7 @@ Mintlify-Dokumentation für osiro (Produkte: **Portal**, **Convert**, **Message*
 - Wenn Detailwissen fehlt: **Platzhalter explizit markieren** ("Platzhalter – ...") statt zu raten oder Fakten zu erfinden. Bei echter Unsicherheit lieber kurz nachfragen.
 - Granularität: lieber mehrere kleine, aufgabenspezifische Artikel als eine breite Sammelseite (z. B. eigene Artikel für Farben, Typografie, Element-Einstellungen, Layout statt einer "Design"-Sammelseite).
 - Der `title` einer Index-Seite darf nie 1:1 dem Namen ihrer Group entsprechen (sonst zeigt die Sidebar z. B. "Funnels / Funnels"). Stattdessen konkreter/fragend formulieren, z. B. "Was ist ein Funnel?", "Was ist Convert?", "Account erstellen".
+- Verwandte Artikel sollen aufeinander verweisen (inline-Link im Fließtext oder eigener Verweis am Abschnittsende), damit Nutzer einfach zwischen zusammenhängenden Themen navigieren können. Beim Schreiben oder Ändern eines Artikels aktiv prüfen, ob es thematisch verwandte Artikel gibt, und ggf. Links in beide Richtungen ergänzen.
 
 ## Convert – Design-Bereich
 
