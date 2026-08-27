@@ -5,13 +5,13 @@ description: "Standard-E-Mail-Adresse von osiro nutzen oder eigene Domain hinter
 
 ## E-Mail
 
-Unter **Einstellungen → Automatisierung → E-Mail** verwalten Sie die Absenderadressen, über die Ihre Organisation E-Mails versenden kann, z. B. für [Vorlagen](/message/vorlagen/index).
+Unter **Einstellungen → Organisation → Domains** verwalten Sie die Absenderadressen, über die Ihre Organisation E-Mails versenden kann, z. B. für [Vorlagen](/message/vorlagen/index). In derselben Tabelle sehen Sie auch, welche Domains als Landing-Page-Domain genutzt werden – über die Filter **Alle / E-Mail / Landing Page / Beides** lässt sich die Tabelle entsprechend eingrenzen.
 
 <img src="/images/message/konfiguration/e-mail.png"/>
 
 ### Standard-Adresse von osiro
 
-Jede Organisation erhält automatisch eine bereits verifizierte Adresse nach dem Muster `ihre-organisation@out.osiro.email` (Kennzeichnung **osiro-Standard**). Diese Adresse können Sie ohne weitere Einrichtung sofort nutzen.
+Jede Organisation erhält automatisch eine bereits verifizierte Adresse nach dem Muster `ihre-organisation@out.osiro.email` (Kennzeichnung **osiro-Standard**). Diese Adresse können Sie ohne weitere Einrichtung sofort nutzen und erscheint automatisch in der Domains-Tabelle.
 
 <Note>
 Die Domain `out.osiro.email` wird von mehreren osiro-Kunden gemeinsam genutzt. Die Zustellbarkeit ist dadurch nicht garantiert. Für Versand unter eigener Marke und mit voller Kontrolle über die Zustellbarkeit empfiehlt sich eine eigene Domain.
@@ -36,6 +36,10 @@ Die Domain `out.osiro.email` wird von mehreren osiro-Kunden gemeinsam genutzt. D
 <Warning>
 Erst nach erfolgreicher Verifizierung können E-Mails über eine eigene Domain versendet werden, z. B. über [Vorlagen](/message/vorlagen/index) im [Nachricht-Baustein](/message/flows/nachricht).
 </Warning>
+
+### Reply-To und Verwendung
+
+Über das Drei-Punkte-Menü einer Absenderadresse lassen sich bis zu vier **Reply-To-Adressen** hinterlegen, an die Antworten auf versendete E-Mails gehen. In der Tabelle zeigt eine Tooltip-Spalte außerdem, in wie vielen [Flows](/message/flows/index) die jeweilige Adresse als [Absender eines Nachricht-Bausteins](/message/flows/nachricht#konfig) hinterlegt ist.
 
 ---
 
