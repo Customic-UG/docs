@@ -53,7 +53,8 @@
             "group": "Hilfe & Support",
             "icon": "life-ring",
             "pages": [
-              "portal/support/index"
+              "portal/support/index",
+              "portal/support/neuigkeiten"
             ]
           }
         ]
