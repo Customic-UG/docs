@@ -1,0 +1,99 @@
+# Ablage: Doku-Repo -> .github/workflows/docs-sync.yml
+#
+# Laeuft einmal taeglich, holt gemergte feat-PRs aus dem Produkt-Repo
+# und erzeugt pro PR einen Doku-PR gegen main.
+# Die PRs werden nicht automatisch gemergt - Review und Merge sind manuell.
+#
+# Benoetigte Secrets: siehe cus-488
+
+name: Docs sync
+
+on:
+  # Cron ist deaktiviert, bis die Secrets eingerichtet sind.
+  # Nach dem ersten erfolgreichen manuellen Lauf die zwei Zeilen
+  # darunter einkommentieren - siehe UEBERGABE.md.
+  # schedule:
+  #   - cron: '3 7 * * 1-5'        # werktags 07:03 UTC (09:03 MESZ)
+  workflow_dispatch:               # manuell ausloesbar
+
+# Nur ein Lauf gleichzeitig
+concurrency:
+  group: docs-sync
+  cancel-in-progress: false
+
+env:
+  SOURCE_REPO: Customic-UG/secret-crm
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout docs
+        uses: actions/checkout@v4
+
+      - name: Configure git
+        run: |
+          git config user.name  "docs-bot"
+          git config user.email "docs-bot@users.noreply.github.com"
+
+      - name: Sync docs
+        uses: anthropics/claude-code-action@v1
+        env:
+          # Lesezugriff aufs Produkt-Repo (GitHub App der Org, siehe UEBERGABE.md)
+          GH_TOKEN: ${{ secrets.SOURCE_REPO_TOKEN }}
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: >-
+            --allowedTools Bash,Read,Write,Edit,Glob,Grep
+            --max-turns 60
+          prompt: |
+            Taeglicher Doku-Abgleich mit ${{ env.SOURCE_REPO }}.
+
+            1. Hole gemergte feat-PRs:
+               gh pr list --repo ${{ env.SOURCE_REPO }} --state merged --limit 200 \
+                 --json number,title,mergedAt,url,baseRefName \
+                 --jq '[.[] | select(.baseRefName == "staging")
+                        | select(.title | test("^feat(\\(.*\\))?:"; "i"))]'
+               Behalte nur die, deren mergedAt innerhalb der letzten 7 Tage liegt.
+               Das Fenster ist absichtlich groesser als der Lauf-Rhythmus:
+               faellt ein Lauf aus, wird am naechsten Tag automatisch nachgeholt.
+
+            2. Dedupe. Pruefe fuer jeden Treffer:
+               gh pr list --state all --limit 200 --json number,headRefName,state
+               git ls-remote --heads origin "docs/pr-<nummer>"
+               Existiert docs/pr-<nummer> in irgendeinem Zustand
+               (offen, gemergt, geschlossen, verwaist): ueberspringen.
+
+            2b. Mengenlimit. Bleiben mehr als 10 PRs uebrig, verarbeite nur
+               die 10 aeltesten (nach mergedAt) und melde am Ende, wie viele
+               noch offen sind. Der Rest kommt beim naechsten Lauf.
+
+            3. Fuer jeden verbleibenden PR einzeln:
+               a. gh pr diff <nummer> --repo ${{ env.SOURCE_REPO }}
+               b. Ist die Aenderung fuer Nutzer sichtbar? Interne Refactorings,
+                  Tests, Dependency-Updates, CI-Aenderungen, Formatierung: nein.
+                  Wenn nein: ueberspringen, keinen PR erzeugen.
+               c. Suche mit Grep und Glob in der bestehenden Doku nach dem Thema.
+                  Bevorzuge immer das Aktualisieren einer bestehenden Seite
+                  gegenueber dem Anlegen einer neuen. Neue Seite nur, wenn es
+                  kein passendes Zuhause gibt.
+               d. Nur technische Inhalte anpassen. Stil, Tonalitaet und Struktur
+                  bestehender Seiten nicht umschreiben.
+               e. Bei neuer Seite: docs.json an inhaltlich passender Stelle in
+                  der Navigation ergaenzen.
+               f. Branch docs/pr-<nummer>, ausgehend von main.
+                  Das Namensschema ist verbindlich, die Dedupe-Logik haengt daran.
+                  PR gegen main, KEIN Draft. Titel mit Praefix "docs:".
+                  Setze das Label "docs-review". Keine Reviewer-Zuweisung.
+                  Im Body den Source-PR verlinken und in zwei Saetzen sagen, was
+                  geaendert wurde und was der Reviewer pruefen soll.
+                  Weise im Body darauf hin, dass das Feature noch in staging ist
+                  und dieser PR erst mit dem Release nach main gemergt werden soll.
+
+            4. Ein Doku-PR pro Source-PR, nicht gesammelt.
+            5. Halte dich an CLAUDE.md in diesem Repo.
+            6. Committe nie direkt auf main. Merge nichts selbst.
+            7. War nichts zu tun: sag das in einem Satz, erzeuge nichts.
