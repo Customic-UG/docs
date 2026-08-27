@@ -1,0 +1,44 @@
+---
+title: "Leads verkaufen"
+description: "Einen Lead manuell an einen Käufer verkaufen."
+---
+
+## Überblick
+
+Unter [Convert → Leads](/convert/leads/index) finden Sie alle noch nicht verkauften Leads Ihrer Organisation – mit den Spalten Eingangsdatum, Name, E-Mail, Telefonnummer und Domain. Diese Seite dient ausschließlich dem Verkauf: Ein Hinweisbanner verweist mit einem Button **Hunter öffnen** darauf, dass die eigentliche Lead-Bearbeitung (Anrufe, Notizen, Status) weiterhin in [Hunter](/hunter/lead-management/overview) stattfindet.
+
+<Note>
+Trotz der Einordnung unter "Convert" in der Navigation gehört diese Seite funktional zu Direct – hier findet der eigentliche Verkauf statt.
+</Note>
+
+---
+
+## Einen Lead verkaufen
+
+<Steps>
+  <Step title="Verkaufen öffnen">
+    Über den Zeilen-Button **Verkaufen**, oder den gleichnamigen Button auf der Lead-Detailseite (erreichbar über **Lead öffnen**).
+
+    <img src="/images/direct/verkauf/verkaufen-button.png"/>
+  </Step>
+  <Step title="Käufer auswählen">
+    Im Dialog **„Lead verkaufen an"** wählen Sie einen Käufer aus einer durchsuchbaren Liste. Zu jedem Käufer sehen Sie dessen bisherige Verkäufe heute sowie eine kurze Historie vorheriger Verkäufe an diesen Käufer. Der voreingestellte Preis des Käufers lässt sich für diesen einzelnen Verkauf bei Bedarf überschreiben und über den Reset-Button wieder auf den Standardpreis zurücksetzen.
+
+    <img src="/images/direct/verkauf/verkaufen-dialog.png"/>
+  </Step>
+  <Step title="Bestätigen">
+    Ein Klick auf **Lead verkaufen** schließt den Verkauf ab.
+
+    <img src="/images/direct/verkauf/verkauft.png"/>
+  </Step>
+</Steps>
+
+Nach der Bestätigung:
+
+- Der Lead gilt als verkauft, zeigt auf seiner Detailseite **Verkauft an** mit dem Badge **In Beschwerdefrist**, und erscheint unter [Verkaufte Leads](/direct/verkauf/verkaufte-leads). Von dort aus lässt sich über den Button **Rückerstattung** auch selbst eine [Reklamation](/direct/reklamationen/index) auslösen.
+- Ist der Käufer mit einer eigenen osiro-Organisation [verknüpft](/direct/kaeufer/verwalten#mit-eigener-osiro-organisation-verknüpfen), wird der Lead direkt in dessen Hunter-Posteingang übertragen.
+- Ist der Käufer nicht verknüpft, erhält er den Lead per E-Mail (optional zusätzlich per Webhook, falls hinterlegt).
+
+<Tip>
+Alternativ lassen sich Leads auch [automatisch](/direct/konfiguration/verkauf) nach Auslastung an Käufer verteilen, ohne dass Sie jeden Lead einzeln verkaufen müssen.
+</Tip>

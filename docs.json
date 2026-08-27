@@ -217,6 +217,13 @@
             ]
           },
           {
+            "group": "Leads",
+            "icon": "user-tag",
+            "pages": [
+              "convert/leads/index"
+            ]
+          },
+          {
             "group": "Medien & Icons",
             "icon": "images",
             "pages": [
@@ -292,6 +299,29 @@
             "icon": "gear",
             "pages": [
               "message/konfiguration/automatisierung"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Direct",
+        "groups": [
+          {
+            "group": "Überblick",
+            "icon": "compass",
+            "pages": [
+              "direct/essentials/index",
+              "direct/dashboard/index"
+            ]
+          },
+          {
+            "group": "Lead-Verkauf",
+            "icon": "tag",
+            "pages": [
+              "direct/kaeufer/anlegen",
+              "direct/kaeufer/verwalten",
+              "direct/verkauf/leads-verkaufen",
+              "direct/verkauf/verkaufte-leads"
             ]
           }
         ]
