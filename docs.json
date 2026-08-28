@@ -323,6 +323,13 @@
               "direct/verkauf/leads-verkaufen",
               "direct/verkauf/verkaufte-leads"
             ]
+          },
+          {
+            "group": "Reklamationen",
+            "icon": "rotate-left",
+            "pages": [
+              "direct/reklamationen/index"
+            ]
           }
         ]
       },
