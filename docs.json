@@ -330,6 +330,13 @@
             "pages": [
               "direct/reklamationen/index"
             ]
+          },
+          {
+            "group": "Konfiguration",
+            "icon": "gear",
+            "pages": [
+              "direct/konfiguration/verkauf"
+            ]
           }
         ]
       },

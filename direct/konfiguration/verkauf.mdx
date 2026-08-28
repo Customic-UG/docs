@@ -1,0 +1,36 @@
+---
+title: "Verkaufseinstellungen"
+description: "Empfänger für Verkaufs-E-Mails hinterlegen und Leads automatisch nach Auslastung verteilen lassen."
+---
+
+## Überblick
+
+Unter **Einstellungen → Direct → Verkauf** konfigurieren Sie, wer bei einem Lead-Verkauf benachrichtigt wird und ob neue Leads automatisch an Käufer verteilt werden.
+
+<img src="/images/direct/konfiguration/verkauf.png"/>
+
+---
+
+## Empfänger
+
+- **Primärer Empfänger** zeigt die E-Mail-Adresse Ihres eigenen Accounts und lässt sich von hier aus bearbeiten – sie lässt sich nicht entfernen, da es sich um Ihre Account-E-Mail handelt.
+- Über **+ Empfänger hinzufügen (Bcc)** hinterlegen Sie bis zu 5 weitere E-Mail-Adressen (nur der Organisations-Owner kann diese verwalten). Diese Adressen werden bei Verkaufs- und Reklamations-E-Mails an Käufer als Antwort-Adresse hinterlegt, sodass Antworten des Käufers auch Ihr Team erreichen. Reicht ein verknüpfter Käufer über sein eigenes Hunter eine [Reklamation](/direct/reklamationen/index) ein, erhalten diese Adressen die Benachrichtigung direkt.
+
+---
+
+## Auto-Verkauf
+
+- **Auto-Verkauf** – schaltet die automatische Verteilung für Ihre Organisation ein oder aus
+- **Karenzzeit** – wie viele Minuten ein neuer Lead wartet; wird er innerhalb dieser Zeit nicht [manuell verkauft](/direct/verkauf/leads-verkaufen), kommt er automatisch in die Verteilung
+
+### Wie die Verteilung entscheidet
+
+Nach Ablauf der Karenzzeit wird ein Lead an den Käufer verteilt, der aktuell am wenigsten ausgelastet ist – gemessen an bereits zugeteilten Leads im Verhältnis zum monatlichen Limit des Käufers. Dabei gilt:
+
+- Nur aktive, nicht [pausierte](/direct/kaeufer/verwalten#käufer-pausieren) Käufer mit freiem Limit kommen infrage.
+- Ein Käufer, der sein Tages- oder Monats-Limit bereits erreicht hat, wird für den Rest der jeweiligen Periode übersprungen – sichtbar unter [Dashboard → Lead Verteilung](/direct/dashboard/index#lead-verteilung).
+- Findet sich kein passender Käufer, bleibt der Lead unverkauft.
+
+<Note>
+Die automatische Verteilung berücksichtigt ausschließlich reguläre Einzelverkäufe.
+</Note>
