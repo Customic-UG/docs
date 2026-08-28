@@ -335,7 +335,8 @@
             "group": "Konfiguration",
             "icon": "gear",
             "pages": [
-              "direct/konfiguration/verkauf"
+              "direct/konfiguration/verkauf",
+              "direct/konfiguration/kauf"
             ]
           }
         ]
