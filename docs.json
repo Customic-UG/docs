@@ -311,7 +311,8 @@
             "icon": "compass",
             "pages": [
               "direct/essentials/index",
-              "direct/dashboard/index"
+              "direct/dashboard/index",
+              "direct/dashboard/kennzahlen"
             ]
           },
           {
