@@ -437,7 +437,7 @@
   },
   "integrations": {
     "plausible": {
-      "domain": "analytics.osiro.com",
+      "domain": "docs.osiro.app",
       "server": "analytics.osiro.com"
     }
   }
