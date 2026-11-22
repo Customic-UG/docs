@@ -434,5 +434,11 @@
       "legalName": "Customic GmbH",
       "url": "https://osiro.com"
     }
+  },
+  "integrations": {
+    "plausible": {
+      "domain": "analytics.osiro.com",
+      "server": "analytics.osiro.com"
+    }
   }
 }
