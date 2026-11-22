@@ -427,5 +427,12 @@
   },
   "fonts": {
     "family": "Geist"
+  },
+  "seo": {
+    "organization": {
+      "name": "osiro",
+      "legalName": "Customic GmbH",
+      "url": "https://osiro.com"
+    }
   }
 }
